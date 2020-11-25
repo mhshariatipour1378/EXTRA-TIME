@@ -52,15 +52,3 @@ function array_age23($array)
 
     return $data;
 }
-
-
-$test = [
-    ['name' => 'a','age' => 20],
-    ['name' => 'ab','age' => 28],
-    ['name' => 'ak','age' => 2]
-    ];
-$test2 = [
-    ['name' => 'ao','age' => 80],
-    ['name' => 'abo','age' => 18],
-    ['name' => 'ako','age' => 62]
-];
