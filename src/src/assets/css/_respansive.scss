@@ -1,0 +1,39 @@
+@mixin respond($media) {
+
+  @if $media == mobiles {
+    @media only screen and (max-width: 768px) {
+      @content
+    }
+  }
+
+  @if $media == xs {
+    @media only screen and (max-width: 575px) {
+      @content
+    }
+  }
+
+  @if $media == sm {
+    @media only screen and (min-width: 575px) and (max-width: 768px) {
+      @content
+    }
+  }
+
+  @if $media == md {
+    @media only screen and (min-width: 768px) and (max-width: 991px) {
+      @content
+    }
+  }
+
+  @if $media == lg {
+    @media only screen and (min-width: 992px) and (max-width: 1200px) {
+      @content
+    }
+  }
+
+  @if $media == xl {
+    @media only screen and (min-width: 1200px) {
+      @content
+    }
+  }
+}
+
