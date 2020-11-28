@@ -1,0 +1,26 @@
+$darkBlue : #255965;
+$white : #FFFFFF;
+$brown : #746223;
+$dark: #707070;
+$gold: #FADA5E;
+
+$boxShadowWhite : 5px 12px 20px rgba(36,37,38,.13);
+
+//mixin
+@mixin goldGradient($shadow ) {
+  background: #FADA5E;
+  background: linear-gradient(to bottom, #FADA5E 0%, #EBCB4F 100%);
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #FADA5E), color-stop(100%, #EBCB4F));
+  background: -webkit-linear-gradient(top, #FADA5E 0%, #EBCB4F 100%);
+  background: -moz-linear-gradient(top, #FADA5E 0%, #EBCB4F 100%);
+  background: -o-linear-gradient(top, #FADA5E 0%, #EBCB4F 100%);
+  background: -ms-linear-gradient(top, #FADA5E 0%, #EBCB4F 100%);
+
+  @if $shadow == 1 {
+    border: 1px solid #DCBC40;
+    box-shadow: inset 0 1px 0 #FFE96D;
+    -webkit-box-shadow: inset 0 1px 0 #FFE96D;
+    -moz-box-shadow: inset 0 1px 0 #FFE96D;
+  }
+
+}

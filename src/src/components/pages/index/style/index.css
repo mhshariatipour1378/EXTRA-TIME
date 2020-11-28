@@ -1,0 +1,143 @@
+.side-bar {
+  padding: 35px 10px;
+  background-color: #255965;
+}
+.side-bar .top-players {
+  background-color: #FFFFFF;
+  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.1);
+  padding: 15px 0;
+  border-radius: 2px;
+  margin-bottom: 50px;
+  position: relative;
+}
+.side-bar .top-players:last-child {
+  margin-bottom: 0;
+}
+.side-bar .top-players a:hover {
+  color: #746223;
+}
+.side-bar .top-players .title {
+  text-align: center;
+  position: relative;
+  z-index: 0;
+  margin-bottom: 0;
+}
+.side-bar .top-players .title .t-text {
+  background-color: #FFFFFF;
+  padding: 10px 15px;
+  z-index: 9;
+}
+.side-bar .top-players .title:before {
+  content: "";
+  position: absolute;
+  height: 4px;
+  background-color: #255965;
+  top: 50%;
+  margin-top: -2px;
+  left: 0;
+  z-index: -1;
+  width: 100%;
+}
+.side-bar .top-players .players {
+  padding: 35px 15px;
+  margin-bottom: 15px;
+  border-bottom: 1px solid #255965;
+}
+.side-bar .top-players .players .player {
+  display: flex;
+  align-items: center;
+  padding: 10px 0;
+  border-bottom: 1px solid #D3D3D3;
+}
+.side-bar .top-players .players .player .p-rank {
+  margin-right: 10px;
+  font-size: 0.8em;
+}
+.side-bar .top-players .players .player .p-img {
+  height: 50px;
+  width: 50px;
+  border-radius: 50%;
+  overflow: hidden;
+  margin-right: 8px;
+  transition: 0.3s;
+  border: 2px solid transparent;
+}
+.side-bar .top-players .players .player .p-img img {
+  height: 100%;
+  width: 100%;
+}
+.side-bar .top-players .players .player .p-ova {
+  margin-left: auto;
+  transition: 0.3s;
+  font-family: "Asul-Regular";
+  font-size: 1em;
+  background-color: rgba(250, 218, 94, 0.8);
+  color: #746223;
+  padding: 5px;
+  border-radius: 2px;
+}
+.side-bar .top-players .players .player:last-child {
+  border-bottom: 0;
+  padding-bottom: 0;
+}
+.side-bar .top-players .players .player:first-child {
+  padding-top: 0;
+}
+.side-bar .top-players .players .player:hover .p-img {
+  border-color: #746223;
+}
+.side-bar .top-players .show-all {
+  padding: 0 15px;
+  margin-bottom: 5px;
+  text-align: right;
+}
+.side-bar .top-players .show-all .text {
+  margin: 0 5px;
+}
+.side-bar .top-players .show-all a {
+  padding-right: 5px;
+}
+.side-bar .top-players .show-all a:hover {
+  padding-right: 0;
+}
+.side-bar .top-players:before {
+  content: "slm";
+  position: absolute;
+  height: 5px;
+  width: 84%;
+  bottom: -5px;
+  left: 8%;
+  border-radius: 0 0 2px 2px;
+  background: #FADA5E;
+  background: linear-gradient(to bottom, #FADA5E 0%, #EBCB4F 100%);
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #FADA5E), color-stop(100%, #EBCB4F));
+  background: -webkit-linear-gradient(top, #FADA5E 0%, #EBCB4F 100%);
+  background: -moz-linear-gradient(top, #FADA5E 0%, #EBCB4F 100%);
+  background: -o-linear-gradient(top, #FADA5E 0%, #EBCB4F 100%);
+  background: -ms-linear-gradient(top, #FADA5E 0%, #EBCB4F 100%);
+}
+
+.teams {
+  background-image: url("./../img/bg_Team.png");
+  background-size: 100% 100%;
+  display: flex;
+  flex-wrap: wrap;
+  padding: 30px 15px;
+  justify-content: center;
+  border-radius: 5px;
+}
+.teams .logo-team {
+  width: 10%;
+  margin: 10px;
+  background: #000;
+}
+.teams .logo-team img {
+  width: 100%;
+  opacity: 0.7;
+  transition: 0.3s;
+}
+.teams .logo-team:hover img {
+  opacity: 1;
+}
+
+/*# sourceMappingURL=index.css.map */
