@@ -13,23 +13,26 @@ const TopPlayers = (props)=>{
 
                 <div className="players ">
 
-                    {props.players.map( (player, index) => (
-                            <a className="player" key={player.ID}>
-                                <div className="p-rank">
-                                    {index + 1}
-                                </div>
-                                <div className="p-img">
-                                    <img src="https://cdn.sofifa.com/players/158/023/20_120.png" alt="player" />
-                                </div>
-                                <div className="p-name">
-                                    {player['Name']}
-                                </div>
-                                <div className="p-ova">
-                                    {player.OVA}
-                                </div>
-                            </a>
+                    {props.players.length > 0
+                        ? props.players.map( (player, index) => (
+                                <a className="player" key={player.ID}>
+                                    <div className="p-rank">
+                                        {index + 1}
+                                    </div>
+                                    <div className="p-img">
+                                        <img src="https://cdn.sofifa.com/players/158/023/20_120.png" alt="player" />
+                                    </div>
+                                    <div className="p-name">
+                                        {player['Name']}
+                                    </div>
+                                    <div className="p-ova">
+                                        {player.OVA}
+                                    </div>
+                                </a>
+                            )
                         )
-                    )};
+                        : <div>loadding</div>
+                    }
 
 
 
