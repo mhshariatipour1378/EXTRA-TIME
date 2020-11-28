@@ -5,10 +5,14 @@ ini_set('memory_limit', '-1');
  * Example uses Google Spreadsheet CSV feed
  * csvToArray function I think I found on php.net
  */
-header('Content-type: application/json');
+//header('Content-type: application/json');
 
 // Set your CSV feed
-$feed = 'C:\wamp64\www\es\dataBase\fifa21_male2.csv';
+getcwd();
+chdir('db');
+
+
+$feed = getcwd() . '\fifa21_male2.csv';
 
 // Arrays we'll use later
 $keys = array();
