@@ -6,3 +6,4 @@
 
 1. Clone this repo and install dependencies with `npm install`
 1. Build the source code with `npm build`
+1. Run Project with `npm start`
