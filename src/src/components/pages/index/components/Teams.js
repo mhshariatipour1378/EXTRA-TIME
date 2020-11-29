@@ -10,141 +10,81 @@ const Teams = ()=>{
     return(
         <>
             <div className="teams">
-                <a className="logo-team">
-                <img src="/assets/img/teams/team1.png" />
-            </a>
+                <h1 className="title color-white font-title" >PremierLeague Players</h1>
+                <div className="logo-teams">
+                    <a className="logo-team">
+                        <img src="/assets/img/teams/Chelsea.png" />
+                    </a>
 
-                <a className="logo-team">
-                    <img src="/assets/img/teams/team2.png" />
-                </a>
+                    <a className="logo-team">
+                        <img src="/assets/img/teams/AstonVilla.png" />
+                    </a>
 
-                <a className="logo-team">
-                    <img src="/assets/img/teams/team3.png" />
-                </a>
+                    <a className="logo-team">
+                        <img src="/assets/img/teams/Leicester.png" />
+                    </a>
 
-                <a className="logo-team">
-                    <img src="/assets/img/teams/team4.png" />
-                </a>
+                    <a className="logo-team">
+                        <img src="/assets/img/teams/SheffieldUtd.png" />
+                    </a>
 
-                <a className="logo-team">
-                    <img src="/assets/img/teams/team5.png" />
-                </a>
+                    <a className="logo-team">
+                        <img src="/assets/img/teams/Brighton.png" />
+                    </a>
 
-                <a className="logo-team">
-                    <img src="/assets/img/teams/team1.png" />
-                </a>
+                    <a className="logo-team">
+                        <img src="/assets/img/teams/Liverpool.png" />
+                    </a>
 
-                <a className="logo-team">
-                    <img src="/assets/img/teams/team2.png" />
-                </a>
+                    <a className="logo-team">
+                        <img src="/assets/img/teams/Newcastle.png" />
+                    </a>
 
-                <a className="logo-team">
-                    <img src="/assets/img/teams/team3.png" />
-                </a>
+                    <a className="logo-team">
+                        <img src="/assets/img/teams/WestHam.png" />
+                    </a>
 
-                <a className="logo-team">
-                    <img src="/assets/img/teams/team4.png" />
-                </a>
+                    <a className="logo-team">
+                        <img src="/assets/img/teams/Southampton.png" />
+                    </a>
 
-                <a className="logo-team">
-                    <img src="/assets/img/teams/team5.png" />
-                </a>
+                    <a className="logo-team">
+                        <img src="/assets/img/teams/Spurs.png" />
+                    </a>
 
-                <a className="logo-team">
-                    <img src="/assets/img/teams/team5.png" />
-                </a>
-
-
-                <a className="logo-team">
-                    <img src="/assets/img/teams/team1.png" />
-                </a>
+                    <a className="logo-team">
+                        <img src="/assets/img/teams/Burnley.png" />
+                    </a>
 
 
-                <a className="logo-team">
-                    <img src="/assets/img/teams/team5.png" />
-                </a>
+                    <a className="logo-team">
+                        <img src="/assets/img/teams/Wolves.png" />
+                    </a>
 
 
-                <a className="logo-team">
-                    <img src="/assets/img/teams/team1.png" />
-                </a>
-
-                <a className="logo-team">
-                    <img src="/assets/img/teams/team2.png" />
-                </a>
-
-                <a className="logo-team">
-                    <img src="/assets/img/teams/team1.png" />
-                </a>
-
-                <a className="logo-team">
-                    <img src="/assets/img/teams/team2.png" />
-                </a>
-
-                <a className="logo-team">
-                    <img src="/assets/img/teams/team3.png" />
-                </a>
-
-                <a className="logo-team">
-                    <img src="/assets/img/teams/team4.png" />
-                </a>
+                    <a className="logo-team">
+                        <img src="/assets/img/teams/Arsenal.png" />
+                    </a>
 
 
+                    <a className="logo-team">
+                        <img src="/assets/img/teams/Everton.png" />
+                    </a>
+
+                    <a className="logo-team">
+                        <img src="/assets/img/teams/CrystalPalace.png" />
+                    </a>
+
+                    <a className="logo-team">
+                        <img src="/assets/img/teams/ManCity.png" />
+                    </a>
+
+                    <a className="logo-team">
+                        <img src="/assets/img/teams/ManUtd.png" />
+                    </a>
 
 
-                <a className="logo-team">
-                    <img src="/assets/img/teams/team1.png" />
-                </a>
-
-                <a className="logo-team">
-                    <img src="/assets/img/teams/team2.png" />
-                </a>
-
-                <a className="logo-team">
-                    <img src="/assets/img/teams/team3.png" />
-                </a>
-
-                <a className="logo-team">
-                    <img src="/assets/img/teams/team4.png" />
-                </a>
-
-                <a className="logo-team">
-                    <img src="/assets/img/teams/team5.png" />
-                </a>
-
-
-                <a className="logo-team">
-                    <img src="/assets/img/teams/team1.png" />
-                </a>
-
-                <a className="logo-team">
-                    <img src="/assets/img/teams/team2.png" />
-                </a>
-
-                <a className="logo-team">
-                    <img src="/assets/img/teams/team5.png" />
-                </a>
-
-
-                <a className="logo-team">
-                    <img src="/assets/img/teams/team1.png" />
-                </a>
-
-                <a className="logo-team">
-                    <img src="/assets/img/teams/team2.png" />
-                </a>
-
-                <a className="logo-team">
-                    <img src="/assets/img/teams/team3.png" />
-                </a>
-
-                <a className="logo-team">
-                    <img src="/assets/img/teams/team4.png" />
-                </a>
-
-                <a className="logo-team">
-                    <img src="/assets/img/teams/team5.png" />
-                </a>
+                </div>
             </div>
         </>
     )
