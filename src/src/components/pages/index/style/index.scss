@@ -72,6 +72,7 @@
          overflow: hidden;
          margin-right: 8px;
          transition: 0.3s;
+         background-color: #dddde2;
          border: 2px solid transparent;
          img{
            height: 100%;
@@ -155,6 +156,7 @@
   background-size: cover;
   padding: 30px 15px;
   text-align: center;
+  margin-bottom: 45px;
 
   .title{
     display: inline-block;
@@ -240,4 +242,126 @@
   }
 
 }
+
+.top-player-slider{
+  background-color: $white;
+  box-shadow: 0 1px 5px rgba(0, 0, 0, 0.3);
+  padding: 30px 0;
+  margin-bottom: 45px;
+
+  .slider-title{
+    margin-bottom: 45px;
+    &:before{
+      content: "";
+      height: 20px;
+      width: 50px;
+      margin-right: 10px;
+      display: inline-block;
+      background-color: $brown;
+      border-radius: 0 2px 2px 0;
+    }
+  }
+
+  .slider{
+    padding: 0 15px;
+  }
+
+  .top-player{
+    background-image: url("./../img/bg-palyer.png");
+    margin: auto 5px;
+    background-size: 100% 100%;
+
+    border-radius: 5px 5px 15% 15%;
+    padding: 20px 25px 55px 25px;
+
+    .top-info{
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 20px;
+
+      .p-img{
+        height: 85px;
+        width: 85px;
+        border-radius: 50%;
+        overflow: hidden;
+        padding: 3px;
+        border: 2px solid $brown;
+        img{
+          width: 100%;
+          height: 100%;
+          border-radius: 50%;
+          background-color: #D3D3D3;
+        }
+      }
+
+      .t-i-text{
+        width: 50%;
+        text-align: center;
+
+        .ova{
+          font-size: 2.5em;
+        }
+
+        .bp{
+          font-size: 1.5em;
+        }
+      }
+
+
+    }
+
+
+    .bottom-info{
+
+
+
+      .p-name{
+        font-size: 1.5em;
+      }
+
+      .p-nationality{
+        margin-bottom: 15px;
+      }
+
+      .card-items{
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        position: relative;
+        color: #393939;
+
+        &:before{
+          content: "";
+          position: absolute;
+          left: 50%;
+          top: 0;
+          margin-left: -1px;
+          width: 2px;
+          height: 100%;
+          background-color: rgba(0, 0, 0, 0.3);
+        }
+
+        .item{
+          width: 45%;
+          display: flex;
+          margin: 5px 0;
+          font-size: 1.2em;
+          div{
+            width: 50%;
+            justify-content: space-between;
+            &:last-child{
+              text-align: right;
+            }
+          }
+        }
+
+
+      }
+    }
+
+  }
+
+}
+
 
