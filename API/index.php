@@ -23,12 +23,24 @@ class API
                     'Flag Photo' => $player['Flag Photo'],
                     'Club Logo' => $player['Club Logo'],
                     'card' => [
-                        'HAN' => $player['GK Handling'],
-                        'KIC' => $player['GK Kicking'],
-                        'POS' => $player['GK Positioning'],
-                        'REF' => $player['GK Reflexes'],
-                        'DIV' => $player['GK Diving'],
-                        'SPE' => $player['Sprint Speed'],
+                        '1' => [
+                            'name' => 'HAN',
+                            'val' => $player['GK Handling']],
+                        '2' => [
+                            'name' => 'KIC',
+                            'val' => $player['GK Kicking']],
+                        '3' => [
+                            'name' => 'POS',
+                            'val' => $player['GK Positioning']],
+                        '4' => [
+                            'name' => 'REF',
+                            'val' => $player['GK Reflexes']],
+                        '5' => [
+                            'name' => 'DIV',
+                            'val' => $player['GK Diving']],
+                        '6' => [
+                            'name' => 'SPE',
+                            'val' => $player['Sprint Speed']],
                     ],
 
                 );
@@ -47,12 +59,24 @@ class API
                     'Flag Photo' => $player['Flag Photo'],
                     'Club Logo' => $player['Club Logo'],
                     'card' => [
-                        'PAC' => $player['PAC'],
-                        'SHO' => $player['SHO'],
-                        'PAS' => $player['PAS'],
-                        'DRI' => $player['DRI'],
-                        'DEF' => $player['DEF'],
-                        'PHY' => $player['PHY']
+                        '1' => [
+                            'name' => 'PAC',
+                            'val' => $player['PAC']],
+                        '2' => [
+                            'name' => 'SHO',
+                            'val' => $player['SHO']],
+                        '3' => [
+                            'name' => 'PAS',
+                            'val' => $player['PAS']],
+                        '4' => [
+                            'name' => 'DRI',
+                            'val' => $player['DRI']],
+                        '5' => [
+                            'name' => 'DEF',
+                            'val' => $player['DEF']],
+                        '6' => [
+                            'name' => 'PHY',
+                            'val' => $player['PHY']]
                     ],
 
                 );
@@ -89,12 +113,24 @@ class API
                     'Flag Photo' => $player['Flag Photo'],
                     'Club Logo' => $player['Club Logo'],
                     'card' => [
-                        'HAN' => $player['GK Handling'],
-                        'KIC' => $player['GK Kicking'],
-                        'POS' => $player['GK Positioning'],
-                        'REF' => $player['GK Reflexes'],
-                        'DIV' => $player['GK Diving'],
-                        'SPE' => $player['Sprint Speed'],
+                        '1' => [
+                            'name' => 'HAN',
+                            'val' => $player['GK Handling']],
+                        '2' => [
+                            'name' => 'KIC',
+                            'val' => $player['GK Kicking']],
+                        '3' => [
+                            'name' => 'POS',
+                            'val' => $player['GK Positioning']],
+                        '4' => [
+                            'name' => 'REF',
+                            'val' => $player['GK Reflexes']],
+                        '5' => [
+                            'name' => 'DIV',
+                            'val' => $player['GK Diving']],
+                        '6' => [
+                            'name' => 'SPE',
+                            'val' => $player['Sprint Speed']],
                     ],
 
                 );
@@ -113,12 +149,24 @@ class API
                     'Flag Photo' => $player['Flag Photo'],
                     'Club Logo' => $player['Club Logo'],
                     'card' => [
-                        'PAC' => $player['PAC'],
-                        'SHO' => $player['SHO'],
-                        'PAS' => $player['PAS'],
-                        'DRI' => $player['DRI'],
-                        'DEF' => $player['DEF'],
-                        'PHY' => $player['PHY']
+                        '1' => [
+                            'name' => 'PAC',
+                            'val' => $player['PAC']],
+                        '2' => [
+                            'name' => 'SHO',
+                            'val' => $player['SHO']],
+                        '3' => [
+                            'name' => 'PAS',
+                            'val' => $player['PAS']],
+                        '4' => [
+                            'name' => 'DRI',
+                            'val' => $player['DRI']],
+                        '5' => [
+                            'name' => 'DEF',
+                            'val' => $player['DEF']],
+                        '6' => [
+                            'name' => 'PHY',
+                            'val' => $player['PHY']]
                     ],
 
                 );
@@ -164,12 +212,24 @@ class API
                     'Flag Photo' => $player['Flag Photo'],
                     'Club Logo' => $player['Club Logo'],
                     'card' => [
-                        'HAN' => $player['GK Handling'],
-                        'KIC' => $player['GK Kicking'],
-                        'POS' => $player['GK Positioning'],
-                        'REF' => $player['GK Reflexes'],
-                        'DIV' => $player['GK Diving'],
-                        'SPE' => $player['Sprint Speed'],
+                        '1' => [
+                            'name' => 'HAN',
+                            'val' => $player['GK Handling']],
+                        '2' => [
+                            'name' => 'KIC',
+                            'val' => $player['GK Kicking']],
+                        '3' => [
+                            'name' => 'POS',
+                            'val' => $player['GK Positioning']],
+                        '4' => [
+                            'name' => 'REF',
+                            'val' => $player['GK Reflexes']],
+                        '5' => [
+                            'name' => 'DIV',
+                            'val' => $player['GK Diving']],
+                        '6' => [
+                            'name' => 'SPE',
+                            'val' => $player['Sprint Speed']],
                     ],
 
                 );
@@ -188,12 +248,24 @@ class API
                     'Flag Photo' => $player['Flag Photo'],
                     'Club Logo' => $player['Club Logo'],
                     'card' => [
-                        'PAC' => $player['PAC'],
-                        'SHO' => $player['SHO'],
-                        'PAS' => $player['PAS'],
-                        'DRI' => $player['DRI'],
-                        'DEF' => $player['DEF'],
-                        'PHY' => $player['PHY']
+                        '1' => [
+                            'name' => 'PAC',
+                            'val' => $player['PAC']],
+                        '2' => [
+                            'name' => 'SHO',
+                            'val' => $player['SHO']],
+                        '3' => [
+                            'name' => 'PAS',
+                            'val' => $player['PAS']],
+                        '4' => [
+                            'name' => 'DRI',
+                            'val' => $player['DRI']],
+                        '5' => [
+                            'name' => 'DEF',
+                            'val' => $player['DEF']],
+                        '6' => [
+                            'name' => 'PHY',
+                            'val' => $player['PHY']]
                     ],
 
                 );
@@ -240,12 +312,24 @@ class API
                     'Flag Photo' => $player['Flag Photo'],
                     'Club Logo' => $player['Club Logo'],
                     'card' => [
-                        'HAN' => $player['GK Handling'],
-                        'KIC' => $player['GK Kicking'],
-                        'POS' => $player['GK Positioning'],
-                        'REF' => $player['GK Reflexes'],
-                        'DIV' => $player['GK Diving'],
-                        'SPE' => $player['Sprint Speed'],
+                        '1' => [
+                            'name' => 'HAN',
+                            'val' => $player['GK Handling']],
+                        '2' => [
+                            'name' => 'KIC',
+                            'val' => $player['GK Kicking']],
+                        '3' => [
+                            'name' => 'POS',
+                            'val' => $player['GK Positioning']],
+                        '4' => [
+                            'name' => 'REF',
+                            'val' => $player['GK Reflexes']],
+                        '5' => [
+                            'name' => 'DIV',
+                            'val' => $player['GK Diving']],
+                        '6' => [
+                            'name' => 'SPE',
+                            'val' => $player['Sprint Speed']],
                     ],
 
                 );
@@ -264,12 +348,24 @@ class API
                     'Flag Photo' => $player['Flag Photo'],
                     'Club Logo' => $player['Club Logo'],
                     'card' => [
-                        'PAC' => $player['PAC'],
-                        'SHO' => $player['SHO'],
-                        'PAS' => $player['PAS'],
-                        'DRI' => $player['DRI'],
-                        'DEF' => $player['DEF'],
-                        'PHY' => $player['PHY']
+                        '1' => [
+                            'name' => 'PAC',
+                            'val' => $player['PAC']],
+                        '2' => [
+                            'name' => 'SHO',
+                            'val' => $player['SHO']],
+                        '3' => [
+                            'name' => 'PAS',
+                            'val' => $player['PAS']],
+                        '4' => [
+                            'name' => 'DRI',
+                            'val' => $player['DRI']],
+                        '5' => [
+                            'name' => 'DEF',
+                            'val' => $player['DEF']],
+                        '6' => [
+                            'name' => 'PHY',
+                            'val' => $player['PHY']]
                     ],
 
                 );
@@ -314,12 +410,24 @@ class API
                     'Flag Photo' => $player['Flag Photo'],
                     'Club Logo' => $player['Club Logo'],
                     'card' => [
-                        'HAN' => $player['GK Handling'],
-                        'KIC' => $player['GK Kicking'],
-                        'POS' => $player['GK Positioning'],
-                        'REF' => $player['GK Reflexes'],
-                        'DIV' => $player['GK Diving'],
-                        'SPE' => $player['Sprint Speed'],
+                        '1' => [
+                            'name' => 'HAN',
+                            'val' => $player['GK Handling']],
+                        '2' => [
+                            'name' => 'KIC',
+                            'val' => $player['GK Kicking']],
+                        '3' => [
+                            'name' => 'POS',
+                            'val' => $player['GK Positioning']],
+                        '4' => [
+                            'name' => 'REF',
+                            'val' => $player['GK Reflexes']],
+                        '5' => [
+                            'name' => 'DIV',
+                            'val' => $player['GK Diving']],
+                        '6' => [
+                            'name' => 'SPE',
+                            'val' => $player['Sprint Speed']],
                     ],
 
                 );
@@ -338,12 +446,24 @@ class API
                     'Flag Photo' => $player['Flag Photo'],
                     'Club Logo' => $player['Club Logo'],
                     'card' => [
-                        'PAC' => $player['PAC'],
-                        'SHO' => $player['SHO'],
-                        'PAS' => $player['PAS'],
-                        'DRI' => $player['DRI'],
-                        'DEF' => $player['DEF'],
-                        'PHY' => $player['PHY']
+                        '1' => [
+                            'name' => 'PAC',
+                            'val' => $player['PAC']],
+                        '2' => [
+                            'name' => 'SHO',
+                            'val' => $player['SHO']],
+                        '3' => [
+                            'name' => 'PAS',
+                            'val' => $player['PAS']],
+                        '4' => [
+                            'name' => 'DRI',
+                            'val' => $player['DRI']],
+                        '5' => [
+                            'name' => 'DEF',
+                            'val' => $player['DEF']],
+                        '6' => [
+                            'name' => 'PHY',
+                            'val' => $player['PHY']]
                     ],
 
                 );
@@ -385,12 +505,24 @@ class API
                     'Flag Photo' => $player['Flag Photo'],
                     'Club Logo' => $player['Club Logo'],
                     'card' => [
-                        'HAN' => $player['GK Handling'],
-                        'KIC' => $player['GK Kicking'],
-                        'POS' => $player['GK Positioning'],
-                        'REF' => $player['GK Reflexes'],
-                        'DIV' => $player['GK Diving'],
-                        'SPE' => $player['Sprint Speed'],
+                        '1' => [
+                            'name' => 'HAN',
+                            'val' => $player['GK Handling']],
+                        '2' => [
+                            'name' => 'KIC',
+                            'val' => $player['GK Kicking']],
+                        '3' => [
+                            'name' => 'POS',
+                            'val' => $player['GK Positioning']],
+                        '4' => [
+                            'name' => 'REF',
+                            'val' => $player['GK Reflexes']],
+                        '5' => [
+                            'name' => 'DIV',
+                            'val' => $player['GK Diving']],
+                        '6' => [
+                            'name' => 'SPE',
+                            'val' => $player['Sprint Speed']],
                     ],
 
                 );
@@ -409,12 +541,24 @@ class API
                     'Flag Photo' => $player['Flag Photo'],
                     'Club Logo' => $player['Club Logo'],
                     'card' => [
-                        'PAC' => $player['PAC'],
-                        'SHO' => $player['SHO'],
-                        'PAS' => $player['PAS'],
-                        'DRI' => $player['DRI'],
-                        'DEF' => $player['DEF'],
-                        'PHY' => $player['PHY']
+                        '1' => [
+                            'name' => 'PAC',
+                            'val' => $player['PAC']],
+                        '2' => [
+                            'name' => 'SHO',
+                            'val' => $player['SHO']],
+                        '3' => [
+                            'name' => 'PAS',
+                            'val' => $player['PAS']],
+                        '4' => [
+                            'name' => 'DRI',
+                            'val' => $player['DRI']],
+                        '5' => [
+                            'name' => 'DEF',
+                            'val' => $player['DEF']],
+                        '6' => [
+                            'name' => 'PHY',
+                            'val' => $player['PHY']]
                     ],
 
                 );
