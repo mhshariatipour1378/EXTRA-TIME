@@ -108,7 +108,7 @@ class API
     {
         $data = require_once "csv-to-array.php";
         $data = array_mget($data, 'GK');
-        $players = array_msort($data, array('OVA' => SORT_DESC));
+        $data = array_msort($data, array('OVA' => SORT_DESC));
         $couter = 0;
         foreach ($data as $player) {
             if ($player['BP'] == 'GK') {
@@ -328,7 +328,7 @@ class API
         $LM = array_mget($data, 'LM');
         $RM = array_mget($data, 'RM');
         $CM = array_mget($data, 'CM');
-        $AM = array_mget($data, 'AM');
+        $AM = array_mget($data, 'CAM');
         $data = array_merge($DM, $RW, $LW, $LM, $RM, $CM, $AM);
 
         $data = array_msort($data, array('OVA' => SORT_DESC));
@@ -647,6 +647,265 @@ class API
         return json_encode($users);
     }
 
+    function getById($id)
+    {
+        $data = require_once "csv-to-array.php";
+        $data = array_getKeyValue($data, 'ID', $id);
+        $couter = 0;
+        foreach ($data as $player) {
+            if ($player['BP'] == 'GK') {
+                $users[$couter] = array(
+                    'status' => 'ok',
+                    'data' => [
+                    'ID' => $player['ID'],
+                    'INFO' =>[
+                        'Name' => $player['Name'],
+                        'Age' => $player['Age'],
+                        'Nationality' => $player['Nationality'],
+                        'Club' => $player['Club'],
+                        'Height' => $player['Height'],
+                        'Weight' => $player['Weight'],
+                        'foot' => $player['foot'],
+                        'Team & Contract' => $player['Team & Contract'],
+
+                    ],
+                    'photo' => [
+                        'Player Photo' => $player['Player Photo'],
+                        'Flag Photo' => $player['Flag Photo'],
+                        'Club Logo' => $player['Club Logo'],
+                    ],
+                    'OVA' => $player['OVA'],
+                    'BP' => $player['BP'],
+                    'card' => [
+                        [
+                            'name' => 'HAN',
+                            'val' => $player['GK Handling']
+                        ],
+                        [
+                            'name' => 'KIC',
+                            'val' => $player['GK Kicking']
+                        ],
+                        [
+                            'name' => 'POS',
+                            'val' => $player['GK Positioning']
+                        ],
+                        [
+                            'name' => 'REF',
+                            'val' => $player['GK Reflexes']
+                        ],
+                        [
+                            'name' => 'DIV',
+                            'val' => $player['GK Diving']
+                        ],
+                        [
+                            'name' => 'SPE',
+                            'val' => $player['Sprint Speed']
+                        ],
+                    ],
+                    'Attacking' =>[
+                        ['name' => 'Crossing', 'value' => $player['Crossing']],
+                        ['name' => 'Finishing', 'value' => $player['Finishing']],
+                        ['name' => 'Heading Accuracy', 'value' => $player['Heading Accuracy']],
+                        ['name' => 'Short Passing', 'value' => $player['Short Passing']],
+                        ['name' => 'Volleys', 'value' => $player['Volleys']],
+                        'total' => $player['Attacking'],
+                        'Average' => $player['Attacking']/5,
+                    ],
+                    'Skill' =>[
+                            ['name' => 'Dribbling', 'value' => $player['Dribbling']],
+                            ['name' => 'Curve', 'value' => $player['Curve']],
+                            ['name' => 'FK Accuracy', 'value' => $player['FK Accuracy']],
+                            ['name' => 'Long Passing', 'value' => $player['Long Passing']],
+                            ['name' => 'Ball Control', 'value' => $player['Ball Control']],
+                            'total' => $player['Skill'],
+                            'Average' => $player['Skill']/5,
+                        ],
+                    'Movement' =>[
+                            ['name' => 'Acceleration', 'value' => $player['Acceleration']],
+                            ['name' => 'Sprint Speed', 'value' => $player['Sprint Speed']],
+                            ['name' => 'Agility', 'value' => $player['Agility']],
+                            ['name' => 'Reactions', 'value' => $player['Reactions']],
+                            ['name' => 'Balance', 'value' => $player['Balance']],
+                            'total' => $player['Movement'],
+                            'Average' => $player['Movement']/5,
+                        ],
+                    'Power' =>[
+                            ['name' => 'Shot Power', 'value' => $player['Shot Power']],
+                            ['name' => 'Jumping', 'value' => $player['Jumping']],
+                            ['name' => 'Stamina', 'value' => $player['Stamina']],
+                            ['name' => 'Strength', 'value' => $player['Strength']],
+                            ['name' => 'Long Shots', 'value' => $player['Long Shots']],
+                            'total' => $player['Power'],
+                            'Average' => $player['Power']/5,
+                        ],
+                    'Mentality' =>[
+                            ['name' => 'Aggression', 'value' => $player['Aggression']],
+                            ['name' => 'Interceptions', 'value' => $player['Interceptions']],
+                            ['name' => 'Positioning', 'value' => $player['Positioning']],
+                            ['name' => 'Vision', 'value' => $player['Vision']],
+                            ['name' => 'Penalties', 'value' => $player['Penalties']],
+                            'total' => $player['Mentality'],
+                            'Average' => $player['Mentality']/5,
+                        ],
+                    'Defending' =>[
+                            ['name' => 'Marking', 'value' => $player['Marking']],
+                            ['name' => 'Standing Tackle', 'value' => $player['Standing Tackle']],
+                            ['name' => 'Sliding Tackle', 'value' => $player['Sliding Tackle']],
+                            'total' => $player['Defending'],
+                            'Average' => $player['Defending']/3,
+                        ],
+                    'Goalkeeping' =>[
+                            ['name' => 'GK Diving', 'value' => $player['GK Diving']],
+                            ['name' => 'GK Handling', 'value' => $player['GK Handling']],
+                            ['name' => 'GK Kicking', 'value' => $player['GK Kicking']],
+                            ['name' => 'GK Positioning', 'value' => $player['GK Positioning']],
+                            ['name' => 'GK Reflexes', 'value' => $player['GK Reflexes']],
+                            'total' => $player['Goalkeeping'],
+                            'Average' => $player['Goalkeeping']/5,
+                        ],
+                    'Total Stats' => $player['Total Stats'],
+                    'Base Stats' => $player['Base Stats'],
+
+                    ]
+
+                );
+            } else {
+                $users[$couter] = array(
+                    'status' => 'ok',
+                    'data' => [
+                        'ID' => $player['ID'],
+                        'INFO' =>[
+                            'Name' => $player['Name'],
+                            'Age' => $player['Age'],
+                            'Nationality' => $player['Nationality'],
+                            'Club' => $player['Club'],
+                            'Height' => $player['Height'],
+                            'Weight' => $player['Weight'],
+                            'foot' => $player['foot'],
+                            'Team & Contract' => $player['Team & Contract'],
+
+                        ],
+                        'photo' => [
+                            'Player Photo' => $player['Player Photo'],
+                            'Flag Photo' => $player['Flag Photo'],
+                            'Club Logo' => $player['Club Logo'],
+                        ],
+                        'OVA' => $player['OVA'],
+                        'BP' => $player['BP'],
+                        'card' => [
+                            [
+                                'name' => 'PAC',
+                                'val' => $player['PAC']
+                            ],
+                            [
+                                'name' => 'SHO',
+                                'val' => $player['SHO']
+                            ],
+                            [
+                                'name' => 'PAS',
+                                'val' => $player['PAS']
+                            ],
+                            [
+                                'name' => 'DRI',
+                                'val' => $player['DRI']
+                            ],
+                            [
+                                'name' => 'DEF',
+                                'val' => $player['DEF']
+                            ],
+                            [
+                                'name' => 'PHY',
+                                'val' => $player['PHY']
+                            ]
+                        ],
+                        'Attacking' =>[
+                            ['name' => 'Crossing', 'value' => $player['Crossing']],
+                            ['name' => 'Finishing', 'value' => $player['Finishing']],
+                            ['name' => 'Heading Accuracy', 'value' => $player['Heading Accuracy']],
+                            ['name' => 'Short Passing', 'value' => $player['Short Passing']],
+                            ['name' => 'Volleys', 'value' => $player['Volleys']],
+                            'total' => $player['Attacking'],
+                            'Average' => $player['Attacking']/5,
+                        ],
+                        'Skill' =>[
+                            ['name' => 'Dribbling', 'value' => $player['Dribbling']],
+                            ['name' => 'Curve', 'value' => $player['Curve']],
+                            ['name' => 'FK Accuracy', 'value' => $player['FK Accuracy']],
+                            ['name' => 'Long Passing', 'value' => $player['Long Passing']],
+                            ['name' => 'Ball Control', 'value' => $player['Ball Control']],
+                            'total' => $player['Skill'],
+                            'Average' => $player['Skill']/5,
+                        ],
+                        'Movement' =>[
+                            ['name' => 'Acceleration', 'value' => $player['Acceleration']],
+                            ['name' => 'Sprint Speed', 'value' => $player['Sprint Speed']],
+                            ['name' => 'Agility', 'value' => $player['Agility']],
+                            ['name' => 'Reactions', 'value' => $player['Reactions']],
+                            ['name' => 'Balance', 'value' => $player['Balance']],
+                            'total' => $player['Movement'],
+                            'Average' => $player['Movement']/5,
+                        ],
+                        'Power' =>[
+                            ['name' => 'Shot Power', 'value' => $player['Shot Power']],
+                            ['name' => 'Jumping', 'value' => $player['Jumping']],
+                            ['name' => 'Stamina', 'value' => $player['Stamina']],
+                            ['name' => 'Strength', 'value' => $player['Strength']],
+                            ['name' => 'Long Shots', 'value' => $player['Long Shots']],
+                            'total' => $player['Power'],
+                            'Average' => $player['Power']/5,
+                        ],
+                        'Mentality' =>[
+                            ['name' => 'Aggression', 'value' => $player['Aggression']],
+                            ['name' => 'Interceptions', 'value' => $player['Interceptions']],
+                            ['name' => 'Positioning', 'value' => $player['Positioning']],
+                            ['name' => 'Vision', 'value' => $player['Vision']],
+                            ['name' => 'Penalties', 'value' => $player['Penalties']],
+                            'total' => $player['Mentality'],
+                            'Average' => $player['Mentality']/5,
+                        ],
+                        'Defending' =>[
+                            ['name' => 'Marking', 'value' => $player['Marking']],
+                            ['name' => 'Standing Tackle', 'value' => $player['Standing Tackle']],
+                            ['name' => 'Sliding Tackle', 'value' => $player['Sliding Tackle']],
+                            'total' => $player['Defending'],
+                            'Average' => $player['Defending']/3,
+                        ],
+                        'Goalkeeping' =>[
+                            ['name' => 'GK Diving', 'value' => $player['GK Diving']],
+                            ['name' => 'GK Handling', 'value' => $player['GK Handling']],
+                            ['name' => 'GK Kicking', 'value' => $player['GK Kicking']],
+                            ['name' => 'GK Positioning', 'value' => $player['GK Positioning']],
+                            ['name' => 'GK Reflexes', 'value' => $player['GK Reflexes']],
+                            'total' => $player['Goalkeeping'],
+                            'Average' => $player['Goalkeeping']/5,
+                        ],
+                        'Total Stats' => $player['Total Stats'],
+                        'Base Stats' => $player['Base Stats'],
+
+                    ]
+
+                );
+
+            }
+            $couter++;
+//            var_dump($users);die();
+//            $final = array_push($users);
+
+
+        }
+
+        if($couter == 0)
+        {
+            $users = [
+                'status' => 'notFound',
+                'data' => null
+            ];
+        }
+
+        return json_encode($users);
+    }
+
+
 }
 
 $test = new API();
@@ -692,6 +951,9 @@ if (isset($_GET['Best'])) {
     } else {
         return 0;
     }
+}elseif (isset($_GET['playerId']) and !empty($_GET['playerId'])){
+    echo $test->getById($_GET['playerId']);
+
 } else {
     return 0;
 }
