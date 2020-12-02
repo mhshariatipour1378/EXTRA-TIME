@@ -1,13 +1,95 @@
 import React from 'react'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faSearch } from '@fortawesome/free-solid-svg-icons'
+import "./style/footer.css"
 
 
 const Footer = ()=>{
   return(
       <>
-        <footer className="bg-dark text-white" style={{marginTop : 150}}>
-            FOOTER
+        <footer className="text-white" style={{marginTop : 150}}>
+            <div className="explain">
+
+                <h3>Unrivaled Authenticity</h3>
+                <h3>The World’s Game</h3>
+
+                <p>EA SPORTS FIFA 21 brings you unrivaled authenticity with more than 30 official leagues, 700+ teams, and 17,000+ authentic players.</p>
+
+            </div>
+
+            <div className="container">
+                <div className="row">
+                    <div className="col-3">
+
+                    <h3 className="head-link">Top Players</h3>
+                    <ul className="links">
+                        <li className="link">
+                            <a>
+                                Goalkeepers
+                            </a>
+                        </li>
+
+                        <li className="link">
+                            <a>
+                                Defenders
+                            </a>
+                        </li>
+
+                        <li className="link">
+                            <a>
+                                Midfielders
+                            </a>
+                        </li>
+
+                        <li className="link">
+                            <a>
+                                Forwards
+                            </a>
+                        </li>
+
+                        <li className="link">
+                            <a>
+                                Young
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+
+                    <div className="col-3">
+
+                        <h3 className="head-link">Team Players</h3>
+                        <ul className="links">
+                            <li className="link">
+                                <a>
+                                    Gelsea
+                                </a>
+                            </li>
+
+                            <li className="link">
+                                <a>
+                                    Wolves
+                                </a>
+                            </li>
+
+                            <li className="link">
+                                <a>
+                                    Liverpool
+                                </a>
+                            </li>
+
+                            <li className="link">
+                                <a>
+                                    Everton
+                                </a>
+                            </li>
+
+                            <li className="link">
+                                <a>
+                                    Leicester
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
         </footer>
       </>
   )
