@@ -60,6 +60,7 @@
   overflow: hidden;
   margin-right: 8px;
   transition: 0.3s;
+  background-color: #dddde2;
   border: 2px solid transparent;
 }
 .side-bar .top-players .players .player .p-img img {
@@ -132,6 +133,7 @@
   background-size: cover;
   padding: 30px 15px;
   text-align: center;
+  margin-bottom: 45px;
 }
 .teams .title {
   display: inline-block;
@@ -195,6 +197,160 @@
 @media only screen and (min-width: 992px) and (max-width: 1200px) {
   .teams .logo-team {
     width: 15%;
+  }
+}
+
+.top-player-slider {
+  background-color: #FFFFFF;
+  box-shadow: 0 1px 5px rgba(0, 0, 0, 0.3);
+  padding: 30px 0 20px 0;
+  margin-bottom: 45px;
+  --swiper-navigation-size: 18px;
+  position: relative;
+}
+.top-player-slider:after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  height: 80px;
+  background-color: rgba(38, 79, 101, 0.1);
+  width: 100%;
+}
+.top-player-slider .slider-title {
+  margin-bottom: 45px;
+}
+.top-player-slider .slider-title:before {
+  content: "";
+  height: 20px;
+  width: 50px;
+  margin-right: 10px;
+  display: inline-block;
+  background-color: #255965;
+  border-radius: 0 2px 2px 0;
+}
+.top-player-slider .slider {
+  padding: 0 15px;
+}
+.top-player-slider .top-player {
+  background-image: url("./../img/bg-palyer.png");
+  margin: auto;
+  background-size: 100% 100%;
+  border-radius: 5px 5px 15% 15%;
+  padding: 20px 25px 55px 25px;
+}
+.top-player-slider .top-player .top-info {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+.top-player-slider .top-player .top-info .p-img {
+  height: 85px;
+  width: 85px;
+  border-radius: 50%;
+  overflow: hidden;
+  padding: 3px;
+  border: 2px solid #746223;
+}
+.top-player-slider .top-player .top-info .p-img img {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  background-color: #D3D3D3;
+}
+.top-player-slider .top-player .top-info .t-i-text {
+  width: 50%;
+  text-align: center;
+}
+.top-player-slider .top-player .top-info .t-i-text .ova {
+  font-size: 2.5em;
+}
+.top-player-slider .top-player .top-info .t-i-text .bp {
+  font-size: 1.5em;
+}
+.top-player-slider .top-player .bottom-info .p-name {
+  font-size: 1.4em;
+}
+.top-player-slider .top-player .bottom-info .p-nationality {
+  margin-bottom: 15px;
+}
+.top-player-slider .top-player .bottom-info .card-items {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  position: relative;
+  color: #393939;
+}
+.top-player-slider .top-player .bottom-info .card-items:before {
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: 0;
+  margin-left: -1px;
+  width: 2px;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.3);
+}
+.top-player-slider .top-player .bottom-info .card-items .item {
+  width: 45%;
+  display: flex;
+  margin: 5px 0;
+  font-size: 1.2em;
+}
+.top-player-slider .top-player .bottom-info .card-items .item div {
+  width: 50%;
+  justify-content: space-between;
+}
+.top-player-slider .top-player .bottom-info .card-items .item div:last-child {
+  text-align: right;
+}
+.top-player-slider .swiper-container {
+  padding-bottom: 65px;
+}
+.top-player-slider .btn-slider {
+  background-color: #255965;
+  border-radius: 50%;
+  position: absolute;
+  top: calc(100% - 34px);
+  padding: 16px;
+  color: #FFFFFF;
+  width: 25px !important;
+  height: 25px !important;
+  margin-top: unset !important;
+  z-index: 10;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.top-player-slider .btn-slider:hover {
+  transform: scale(1.02);
+  background-color: #746223;
+  color: #FADA5E;
+}
+.top-player-slider .swiper-button-next {
+  left: calc(50% + 85px) !important;
+  right: unset !important;
+}
+.top-player-slider .swiper-button-prev {
+  right: calc(50% + 85px) !important;
+  left: unset !important;
+}
+.top-player-slider .swiper-container-horizontal > .swiper-pagination-bullets {
+  bottom: 4px !important;
+}
+.top-player-slider .swiper-pagination-bullet-active {
+  background-color: #255965 !important;
+}
+@media only screen and (max-width: 767px) {
+  .top-player-slider .top-player {
+    width: 70%;
+  }
+}
+@media only screen and (max-width: 575px) {
+  .top-player-slider .top-player {
+    width: 100%;
   }
 }
 

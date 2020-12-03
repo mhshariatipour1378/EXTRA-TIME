@@ -1,0 +1,109 @@
+@import "./../../../assets/css/respansive";
+@import "./../../../assets/css/variables";
+
+footer{
+  padding: 200px 0 50px 0;
+  position: relative;
+
+
+  &:after{
+    content:  " ";
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    left: 0;
+    bottom: 0;
+    background-image: url("./../img/bg.jpg");
+    background-size: cover;
+    z-index: -2;
+  }
+
+  &:before{
+    content:  " ";
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    left: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.8);
+    z-index: -1;
+  }
+
+  .explain{
+    background-image: url("./../img/bg-green.jpg");
+    background-size: cover;
+    position: absolute;
+    width: 70%;
+    left: 15%;
+    top: -80px;
+    z-index: 9;
+    padding: 25px;
+    border-radius: 10px;
+    font-size: 18px;
+  }
+
+  .links{
+    .link{
+      margin-bottom: 10px;
+      a{
+        font-size: 1.1em;
+
+        &:hover{
+          color: $gold;
+          padding-left: 5px;
+        }
+      }
+    }
+  }
+
+  .logo{
+    width: 100%;
+    background-color: rgba(255, 255, 255, 0.1);
+    height: 100%;
+    border-radius: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 25px;
+    img{
+      display: block;
+      margin: auto;
+      width: 35%;
+    }
+  }
+
+  @include respond("mobiles") {
+
+    .explain{
+      width: 80%;
+      left: 10%;
+    }
+
+    .links{
+      margin-bottom: 50px;
+    }
+  }
+
+  @include respond("xs") {
+    padding: 300px 0 50px 0;
+
+
+    .logo{
+      width: 100%;
+      background-color: rgba(255, 255, 255, 0.1);
+      height: 100%;
+      border-radius: 5px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: unset;
+      img{
+        display: block;
+        margin: auto;
+        width: auto;
+      }
+    }
+
+  }
+
+}
