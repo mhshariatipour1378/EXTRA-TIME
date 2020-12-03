@@ -1,5 +1,5 @@
 footer {
-  padding: 175px 0 50px 0;
+  padding: 200px 0 50px 0;
   position: relative;
 }
 footer:after {
@@ -44,6 +44,50 @@ footer .links .link a {
 footer .links .link a:hover {
   color: #FADA5E;
   padding-left: 5px;
+}
+footer .logo {
+  width: 100%;
+  background-color: rgba(255, 255, 255, 0.1);
+  height: 100%;
+  border-radius: 5px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 25px;
+}
+footer .logo img {
+  display: block;
+  margin: auto;
+  width: 35%;
+}
+@media only screen and (max-width: 768px) {
+  footer .explain {
+    width: 80%;
+    left: 10%;
+  }
+  footer .links {
+    margin-bottom: 50px;
+  }
+}
+@media only screen and (max-width: 575px) {
+  footer {
+    padding: 300px 0 50px 0;
+  }
+  footer .logo {
+    width: 100%;
+    background-color: rgba(255, 255, 255, 0.1);
+    height: 100%;
+    border-radius: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: unset;
+  }
+  footer .logo img {
+    display: block;
+    margin: auto;
+    width: auto;
+  }
 }
 
 /*# sourceMappingURL=footer.css.map */

@@ -16,8 +16,8 @@ const Footer = ()=>{
             </div>
 
             <div className="container">
-                <div className="row">
-                    <div className="col-3">
+                <div className="row justify-content-center">
+                    <div className="col-md-3 col-sm-6">
 
                     <h3 className="head-link">Top Players</h3>
                     <ul className="links">
@@ -53,7 +53,7 @@ const Footer = ()=>{
                     </ul>
                 </div>
 
-                    <div className="col-3">
+                    <div className="col-md-3 col-sm-6">
 
                         <h3 className="head-link">Team Players</h3>
                         <ul className="links">
@@ -87,6 +87,12 @@ const Footer = ()=>{
                                 </a>
                             </li>
                         </ul>
+                    </div>
+
+                    <div className="col-md-4 col-sm-6">
+                        <div className="logo">
+                            <img src="/logo.png" alt="LOGO" />
+                        </div>
                     </div>
                 </div>
             </div>

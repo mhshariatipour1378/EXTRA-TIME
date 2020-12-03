@@ -2,7 +2,7 @@
 @import "./../../../assets/css/variables";
 
 footer{
-  padding: 175px 0 50px 0;
+  padding: 200px 0 50px 0;
   position: relative;
 
 
@@ -54,6 +54,56 @@ footer{
         }
       }
     }
+  }
+
+  .logo{
+    width: 100%;
+    background-color: rgba(255, 255, 255, 0.1);
+    height: 100%;
+    border-radius: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 25px;
+    img{
+      display: block;
+      margin: auto;
+      width: 35%;
+    }
+  }
+
+  @include respond("mobiles") {
+
+    .explain{
+      width: 80%;
+      left: 10%;
+    }
+
+    .links{
+      margin-bottom: 50px;
+    }
+  }
+
+  @include respond("xs") {
+    padding: 300px 0 50px 0;
+
+
+    .logo{
+      width: 100%;
+      background-color: rgba(255, 255, 255, 0.1);
+      height: 100%;
+      border-radius: 5px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: unset;
+      img{
+        display: block;
+        margin: auto;
+        width: auto;
+      }
+    }
+
   }
 
 }
