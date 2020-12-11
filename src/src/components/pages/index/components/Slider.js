@@ -2,6 +2,7 @@ import {React, useRef, useState} from 'react'
 import ReactIdSwiperCustom from 'react-id-swiper/lib/ReactIdSwiper.custom';
 import { Swiper, Navigation, Pagination } from 'swiper/swiper.esm';
 import 'swiper/swiper-bundle.css'
+import {Link} from "react-router-dom";
 
 
 const Slider = (props) => {
@@ -70,7 +71,7 @@ const Slider = (props) => {
                                 <ReactIdSwiperCustom {...params}>
                                     {
                                         props.players.map( (player, index) => (
-                                            <div>
+                                            <Link to={`/player/${player.ID}`} key={player.ID}>
                                                 <div className="top-player">
                                                     <div className="top-info">
                                                         <div className="p-img">
@@ -107,7 +108,7 @@ const Slider = (props) => {
                                                         </div>
                                                     </div>
                                                 </div>
-                                            </div>
+                                            </Link>
                                         ))
 
                                     }

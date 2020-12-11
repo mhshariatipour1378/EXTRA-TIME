@@ -3,6 +3,8 @@ import "./style/index.css"
 import SideBar from "./components/SideBar"
 import Teams from "./components/Teams"
 import Slider from "./components/Slider"
+import CenterBox from "./components/CenterBox"
+import ContainerPage from "./../ContainerPage"
 
 const Index = ()=>{
 
@@ -36,29 +38,33 @@ const Index = ()=>{
                 }
             );
 
+        document.title = "FIFA 21 Player Information";
+
 
 
     }, []);
 
 
     return(
-        <>
+        <ContainerPage searchBox={true}>
             <div className="container">
                 <div className="row">
                     <div className="col-xl-3 col-lg-4 col-12">
                         <SideBar />
                     </div>
                     <div className="col-xl-9 col-lg-8 col-12">
+                        <Slider  players={topPlayer} title="Top Players"/>
+
                         <Teams/>
 
-                        <Slider  players={topPlayer} title="Top Players"/>
+                        <CenterBox/>
 
                         <Slider  players={playerYoung} title={"Top Young Players"}/>
 
                     </div>
                 </div>
             </div>
-        </>
+        </ContainerPage>
     );
 };
 

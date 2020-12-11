@@ -1,7 +1,7 @@
 import React from 'react'
 import {faLongArrowAltRight} from '@fortawesome/free-solid-svg-icons'
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
-
+import {Link} from "react-router-dom";
 
 const TopPlayers = (props)=>{
     return(
@@ -15,7 +15,7 @@ const TopPlayers = (props)=>{
 
                     {props.players.length > 0
                         ? props.players.map( (player, index) => (
-                                <a className="player" key={player.ID}>
+                                <Link to={`/player/${player.ID}`} className="player" key={player.ID}>
                                     <div className="p-rank">
                                         {index + 1}
                                     </div>
@@ -28,7 +28,7 @@ const TopPlayers = (props)=>{
                                     <div className="p-ova">
                                         {player.OVA}
                                     </div>
-                                </a>
+                                </Link>
                             )
                         )
                         : <div>loadding</div>
