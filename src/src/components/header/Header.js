@@ -3,27 +3,28 @@ import "./style/header.css"
 import Logo from "./img/logo.png"
 import {faAngleDown, faBookmark, faTimes, faSearch, faList} from '@fortawesome/free-solid-svg-icons'
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
+import {Link} from "react-router-dom";
 
-const Header = ({txt})=>{
+const Header = ({txt, searchBox})=>{
 
     return(
-        <header>
+        <header className={searchBox ? "active-search-box" : ""}>
             <div className="container">
                 <div className="row">
                     <div className="col-12">
                         <nav className="navigation">
 
                             <div className="nav-box">
-                                <a className="logo">
+                                <Link to="/" className="logo">
                                     <img src={Logo} alt="LOGO"/>
-                                </a>
+                                </Link>
 
                                 <ul className="menu-items d-md-block d-none">
 
                                     <li className="m-item">
-                                        <a className="m-link">
+                                        <Link to="/" className="m-link">
                                             HOME
-                                        </a>
+                                        </Link>
                                     </li>
 
 
@@ -254,19 +255,26 @@ const Header = ({txt})=>{
 
                         </nav>
 
-                        <h1 className="font-title info-website">
-                            FIFA 2021 Player
-                            <br/>
-                            Information
-                        </h1>
-                        <form className="header-search">
-                            <div className="input-s-container">
-                                <input className="input" placeholder="Enter the player name" />
-                                <button>
-                                    <FontAwesomeIcon className="icon" icon={faSearch} />
-                                </button>
-                            </div>
-                        </form>
+                        {
+                            searchBox ? (
+                               <>
+                                   <h1 className="font-title info-website">
+                                       FIFA 2021 Player
+                                       <br/>
+                                       Information
+                                   </h1>
+                                   <form className="header-search">
+                                       <div className="input-s-container">
+                                           <input className="input" placeholder="Enter the player name" />
+                                           <button>
+                                               <FontAwesomeIcon className="icon" icon={faSearch} />
+                                           </button>
+                                       </div>
+                                   </form>
+                               </>
+                            ) : ''
+                        }
+
                     </div>
                 </div>
             </div>
