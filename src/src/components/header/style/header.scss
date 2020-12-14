@@ -2,12 +2,12 @@
 @import "./../../../assets/css/variables";
 
 header{
-  background-image: url("./../img/bg1.png");
-  background-size: cover;
-  background-position: top center;
-  height: 600px;
   color: $white;
   margin-bottom: 35px;
+  background-image: url("./../img/bg2.png");
+  background-size: cover;
+  background-position: top center;
+  border-radius: 0 0 25px 0;
 }
 
 .navigation{
@@ -59,6 +59,7 @@ header{
         padding-top: 5px;
         transform: scale(0);
         transition: 0.5s;
+        z-index: 99;
       }
 
       ul.d-items{
@@ -179,6 +180,7 @@ header{
     .holder-items{
       min-width: 250px;
       max-width: 250px;
+      z-index: 99;
     }
 
     .b-player{
@@ -345,9 +347,6 @@ header{
 
 @include respond("mobiles") {
 
-  header{
-    height: 450px;
-  }
 
   .info-website{
     font-size: 65px;
@@ -373,7 +372,6 @@ header{
 
 @include respond("xs") {
   header{
-    height: 320px;
     margin-bottom: 25px;
   }
 
@@ -444,4 +442,25 @@ header{
 
     }
   }
+}
+
+
+header.active-search-box{
+  height: 600px;
+  background-image: url("./../img/bg1.png");
+  border-radius: 0;
+
+
+  @include respond("mobiles") {
+
+      height: 450px;
+
+  }
+
+  @include respond("xs") {
+
+      height: 320px;
+
+  }
+
 }

@@ -1,16 +1,28 @@
-import ContainerPage from "./components/pages/ContainerPage"
+import {routes} from "./Route"
 import 'bootstrap/dist/css/bootstrap.min.css';
-import Index from "./components/pages/index/index"
+import {
+    BrowserRouter as Router,
+    Switch,
+    Route,
+} from "react-router-dom";
+
+
 
 
 
 function App() {
   return (
-    <div className="App">
-      <ContainerPage>
-          <Index/>
-      </ContainerPage>
-    </div>
+      <Router>
+          <div>
+              <Switch>
+                  {
+                      routes.map((item) =>(
+                          <Route {...item} />
+                      ))
+                  }
+              </Switch>
+          </div>
+      </Router>
   );
 }
 

@@ -1,10 +1,10 @@
 header {
-  background-image: url("./../img/bg1.png");
-  background-size: cover;
-  background-position: top center;
-  height: 600px;
   color: #FFFFFF;
   margin-bottom: 35px;
+  background-image: url("./../img/bg2.png");
+  background-size: cover;
+  background-position: top center;
+  border-radius: 0 0 25px 0;
 }
 
 .navigation {
@@ -52,6 +52,7 @@ header {
   padding-top: 5px;
   transform: scale(0);
   transition: 0.5s;
+  z-index: 99;
 }
 .navigation ul.menu-items .has-dropdown ul.d-items {
   padding: 10px;
@@ -142,6 +143,7 @@ header {
 .navigation .bookmark-players .holder-items {
   min-width: 250px;
   max-width: 250px;
+  z-index: 99;
 }
 .navigation .bookmark-players .b-player {
   display: flex;
@@ -268,10 +270,6 @@ header {
 }
 
 @media only screen and (max-width: 768px) {
-  header {
-    height: 450px;
-  }
-
   .info-website {
     font-size: 65px;
     margin: 50px 0 35px 0;
@@ -289,7 +287,6 @@ header {
 }
 @media only screen and (max-width: 575px) {
   header {
-    height: 320px;
     margin-bottom: 25px;
   }
 
@@ -334,6 +331,21 @@ header {
   }
   .header-search .input-s-container button {
     width: 20%;
+  }
+}
+header.active-search-box {
+  height: 600px;
+  background-image: url("./../img/bg1.png");
+  border-radius: 0;
+}
+@media only screen and (max-width: 768px) {
+  header.active-search-box {
+    height: 450px;
+  }
+}
+@media only screen and (max-width: 575px) {
+  header.active-search-box {
+    height: 320px;
   }
 }
 
