@@ -1,0 +1,64 @@
+import React from 'react'
+import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
+import {faBookmark} from '@fortawesome/free-solid-svg-icons'
+
+
+const Information = (props)=>{
+    return(
+      <div className="information-holder">
+          <div className="information">
+
+              <div className="bookmark {/*active*/}">
+                  <FontAwesomeIcon className="icon" icon={faBookmark} />
+              </div>
+
+              <div className="p-img">
+                  <img src="/football-player.png" />
+              </div>
+              <h3 className="full-name  font-title">
+                  {props.information.Name}
+              </h3>
+
+              <div className="ova font-title color-brown">
+                  {props.ova}
+              </div>
+
+              <h4 className="bp font-title">
+                  {props.bp}
+              </h4>
+
+              <div className="info-item">
+                  <span className="font-title">Nationality:</span>
+                  {props.information.Nationality}
+              </div>
+
+              <div className="info-item">
+                  <span className="font-title">Club:</span>
+                  {props.information.Club}
+              </div>
+
+              <div className="info-item">
+                  <span className="font-title">Foot:</span>
+                  {props.information.foot}
+              </div>
+
+              <div className="info-item">
+                  <span className="font-title">Age:</span>
+                  {props.information.Age}
+              </div>
+
+              <div className="info-item">
+                  <span className="font-title">Height:</span>
+                  {props.information.Height}
+              </div>
+
+              <div className="info-item">
+                  <span className="font-title">Weight:</span>
+                  {props.information.Weight}
+              </div>
+          </div>
+      </div>
+    );
+};
+
+export default Information;

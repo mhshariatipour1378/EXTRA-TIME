@@ -46,7 +46,7 @@ const Index = ()=>{
 
 
     return(
-        <ContainerPage searchBox={true}>
+        <ContainerPage pageName="index" searchBox={true}>
             <div className="container">
                 <div className="row">
                     <div className="col-xl-3 col-lg-4 col-12">

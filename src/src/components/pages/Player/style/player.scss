@@ -1,0 +1,182 @@
+@import "./../../../../assets/css/respansive";
+@import "./../../../../assets/css/variables";
+
+
+#player{
+
+  .information-holder, .holder-boxes{
+    padding-top: 75px;
+  }
+
+  .information{/*
+    @include goldGradient(1);*/
+    padding: 100px 10px 15px 10px;
+    position: relative;
+    box-shadow: 0 1px 5px rgba(0, 0, 0, 0.3);
+    text-align: center;
+    color: #434343;
+    background-image: linear-gradient(to top, #d5d4d0 0%, #d5d4d0 1%, #eeeeec 31%, #efeeec 75%, #e9e9e7 100%);
+
+    .bookmark{
+      position: absolute;
+      top: 15px;
+      left: 15px;
+      font-size: 30px;
+      color: #adadad;
+      cursor: pointer;
+      transition: 0.3s;
+      &:hover{
+        color: $brown;
+        transform: scale(1.1);
+      }
+    }
+
+    .bookmark.active{
+      color: $brown;
+    }
+
+    .p-img{
+      height: 130px;
+      width: 130px;
+      background-image: linear-gradient(to top, #d5d4d0 0%, #d5d4d0 1%, #eeeeec 31%, #efeeec 75%, #e9e9e7 100%);
+      border-radius: 50%;
+      overflow: hidden;
+      position: absolute;
+      top: -50px;
+      right: calc(50% - 65px);
+      border: 5px solid $white;
+      img{
+        height: 100%;
+        width: 100%;
+      }
+    }
+
+    .ova{
+      @include goldGradient(1);
+      display: inline-block;
+      margin: auto;
+      padding: 5px 10px;
+      font-size: 1.5em;
+      border-radius: 5px;
+      margin-bottom: 15px;
+    }
+
+    .bp{
+      margin-bottom: 25px;
+    }
+
+    .info-item{
+      text-align: left;
+      font-size: 1.1em;
+      margin-bottom: 10px;
+      span{
+        margin-right: 5px;
+      }
+    }
+
+  }
+
+  .box-info{
+
+
+    background-color: $white;
+    box-shadow: 0 1px 5px rgba(0, 0, 0, 0.3);
+    padding: 15px 0 0 0;
+    margin-bottom: 45px;
+    position: relative;
+
+    .box-title{
+      margin-bottom: 25px;
+      color: $darkBlue;
+      &:before{
+        content: "";
+        height: 18px;
+        width: 45px;
+        margin-right: 10px;
+        display: inline-block;
+        background-color: $darkBlue;
+        border-radius: 0 2px 2px 0;
+      }
+    }
+
+
+    .box-items{
+      display: flex;
+      flex-wrap: wrap;
+      margin-bottom: 15px;
+      .b-item{
+        width: 50%;
+        padding: 10px 15px;
+        display: flex;
+        align-items: center;
+
+        .value{
+          background-color: $darkBlue;
+          color: $white;
+          height: 40px;
+          width: 40px;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          margin-right: 5px;
+          border-radius: 50%;
+        }
+
+      }
+    }
+
+
+    .box-sum{
+      background-color: rgba(37, 89, 101, 0.1);
+      display: flex;
+      justify-content: center;
+      color: $darkBlue;
+      font-size: 1.2em;
+      .s-item{
+        display: flex;
+        margin: 10px 15px;
+      }
+    }
+
+  }
+
+  .box-info.brown{
+
+
+    .box-title{
+      color: $brown;
+      &:before{
+        background-color: $brown;
+      }
+    }
+
+
+    .box-items{
+      .b-item{
+
+        .value{
+          background-color: $brown;
+        }
+
+      }
+    }
+
+
+    .box-sum{
+      background-color: rgba(116, 98, 35, 0.1);
+      color: $brown;
+    }
+
+  }
+
+
+  @include respond("xl") {
+    .container{
+      max-width: 1300px !important;
+    }
+  }
+
+}
+
+
+
