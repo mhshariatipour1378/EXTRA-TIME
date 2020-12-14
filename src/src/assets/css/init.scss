@@ -265,8 +265,4 @@ h6 {
   }
 }
 
-@include respond("xl") {
-  .container{
-    max-width: 1350px !important;
-  }
-}
+
