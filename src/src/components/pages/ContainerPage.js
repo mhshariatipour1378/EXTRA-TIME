@@ -6,7 +6,9 @@ const ContainerPage = (props)=>{
     return(
         <>
             <Header searchBox={props.searchBox} />
-            {props.children}
+                <section id={props.pageName}>
+                    {props.children}
+                </section>
             <Footer/>
         </>
     )
