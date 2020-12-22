@@ -58,8 +58,8 @@ header{
         max-width: 150px;
         padding-top: 5px;
         transform: scale(0);
-        transition: 0.5s;
-        z-index: 99;
+        transition: z-index 0s, transform 0.5s;
+        z-index: 9999;
       }
 
       ul.d-items{
@@ -180,7 +180,13 @@ header{
     .holder-items{
       min-width: 250px;
       max-width: 250px;
-      z-index: 99;
+      z-index: 9999 !important;
+      transform: scale(0) !important;
+
+    }
+
+    .holder-items.active{
+      transform: scale(1) !important;
     }
 
     .b-player{
@@ -463,4 +469,10 @@ header.active-search-box{
 
   }
 
+}
+
+@include respond("xl") {
+  .container{
+    max-width: 1350px !important;
+  }
 }

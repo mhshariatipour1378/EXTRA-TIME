@@ -4,7 +4,7 @@ const BoxInfo = (props) =>{
 
     var theme = props.theme != null ? "brown" : "";
 
-    console.log(props);
+    /*console.log(props);*/
     return(
         <div className={`box-info ${theme}`}>
             <h2 className="box-title font-title">
@@ -14,7 +14,7 @@ const BoxInfo = (props) =>{
             <div className="box-items">
                 {
                     props.items.item.map( (item)=>(
-                            <div className="b-item">
+                            <div className="b-item" key={item.name}>
                                 <div className="value">{parseInt(item.value)}</div>
                                 <div className="name">{item.name}</div>
                             </div>

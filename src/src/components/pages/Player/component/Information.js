@@ -1,15 +1,76 @@
-import React from 'react'
+import {React, useEffect, useState }from 'react'
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
-import {faBookmark} from '@fortawesome/free-solid-svg-icons'
+import {faBookmark, faPlus} from '@fortawesome/free-solid-svg-icons'
+import Cookies from 'universal-cookie';
+import useSetPlayersBookMark from "./../../../hooks/useSetPlayersBookMark"
+import usePlayersBookMark from "./../../../hooks/usePlayersBookMark"
+import useSetCounterPlayersBookMark from "./../../../hooks/useSetCounterPlayersBookMark"
 
 
 const Information = (props)=>{
+
+    const playersBookMark = usePlayersBookMark();
+    const setPlayerBookMark = useSetPlayersBookMark();
+    const cookies = new Cookies();
+    const {counterPlus, counterMines} = useSetCounterPlayersBookMark();
+    const [bookMarkActive, setBookMarkActive] = useState(0);
+
+    useEffect(()=>{
+
+        for(var i = 0 ; i < playersBookMark.length ; i++){
+            if (props.id === playersBookMark[i].id) {
+                setBookMarkActive(1);
+            }
+        }
+
+    },[]);
+
+    const togglePlayerBookMark = (id, name, src)=>{
+        if(!bookMarkActive){
+            let temp = playersBookMark ? playersBookMark : [];
+            temp.push({
+                id: id,
+                name: name,
+                src: src
+            });
+            setPlayerBookMark(temp);
+            counterPlus();
+            console.log(playersBookMark);
+            cookies.set('player', temp, { path: '/' });
+        }else{
+            var temp = playersBookMark;
+            for(var i = 0 ; i < temp.length ; i++){
+                if (id === temp[i].id) {
+                    temp.splice(i, 1);
+                }
+            }
+            setPlayerBookMark(temp);
+            console.log(playersBookMark);
+            counterMines();
+            cookies.set('player', temp, { path: '/' });
+        }
+
+        setBookMarkActive(!bookMarkActive);
+    };
+
+
     return(
       <div className="information-holder">
           <div className="information">
 
-              <div className="bookmark {/*active*/}">
+              <div
+                  className={`bookmark ${bookMarkActive ? "active" : ""}`}
+                  onClick={()=>togglePlayerBookMark(
+                      props.id,
+                      props.information.Name,
+                      props.src
+                  )}
+              >
                   <FontAwesomeIcon className="icon" icon={faBookmark} />
+              </div>
+
+              <div className="add-compare">
+                  <FontAwesomeIcon className="icon" icon={faPlus} />
               </div>
 
               <div className="p-img">

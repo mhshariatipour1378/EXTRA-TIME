@@ -24,6 +24,19 @@
   color: #746223;
   transform: scale(1.1);
 }
+#player .information .add-compare {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  font-size: 30px;
+  color: #adadad;
+  cursor: pointer;
+  transition: 0.3s;
+}
+#player .information .add-compare:hover {
+  color: #746223;
+  transform: scale(1.1);
+}
 #player .information .bookmark.active {
   color: #746223;
 }
@@ -99,9 +112,14 @@
 }
 #player .box-info .box-items .b-item {
   width: 50%;
-  padding: 10px 15px;
+  padding: 10px;
   display: flex;
   align-items: center;
+}
+@media only screen and (max-width: 575px) {
+  #player .box-info .box-items .b-item {
+    width: 100%;
+  }
 }
 #player .box-info .box-items .b-item .value {
   background-color: #255965;

@@ -29,7 +29,7 @@ const Player = (props) => {
 
             <div className="container">
                 <div className="row justify-content-center">
-                    <div className="col-3">
+                    <div className="col-xl-3 col-lg-4">
                         <div className="sticky-top">
                             {
                                 playerInfo != null ?
@@ -37,6 +37,8 @@ const Player = (props) => {
                                         information={playerInfo.INFO}
                                         ova={playerInfo.OVA}
                                         bp={playerInfo.BP}
+                                        src={playerInfo.photo.PlayerPhoto}
+                                        id={playerInfo.ID}
                                     />
                                     : "Loading"
                             }
@@ -44,10 +46,10 @@ const Player = (props) => {
                         </div>
                     </div>
 
-                    <div className="col-9">
+                    <div className="col-xl-9 col-lg-8 col-md-7">
                         <div className="holder-boxes">
                             <div className="row">
-                                <div className="col-6">
+                                <div className="col-xl-6 col-12">
                                     {
                                         playerInfo != null ?
                                             <BoxInfo
@@ -58,7 +60,7 @@ const Player = (props) => {
                                     }
                                 </div>
 
-                                <div className="col-6">
+                                <div className="col-xl-6 col-12">
                                     {
                                         playerInfo != null ?
                                             <BoxInfo
@@ -69,7 +71,7 @@ const Player = (props) => {
                                     }
                                 </div>
 
-                                <div className="col-6">
+                                <div className="col-xl-6 col-12">
                                     {
                                         playerInfo != null ?
                                             <BoxInfo
@@ -82,7 +84,7 @@ const Player = (props) => {
                                 </div>
 
 
-                                <div className="col-6">
+                                <div className="col-xl-6 col-12">
                                     {
                                         playerInfo != null ?
                                             <BoxInfo
@@ -95,7 +97,7 @@ const Player = (props) => {
                                 </div>
 
 
-                                <div className="col-6">
+                                <div className="col-xl-6 col-12">
                                     {
                                         playerInfo != null ?
                                             <BoxInfo
@@ -109,7 +111,7 @@ const Player = (props) => {
 
 
 
-                                <div className="col-6">
+                                <div className="col-xl-6 col-12">
                                     {
                                         playerInfo != null ?
                                             <BoxInfo
@@ -120,7 +122,7 @@ const Player = (props) => {
                                     }
                                 </div>
 
-                                <div className="col-6">
+                                <div className="col-xl-6 col-12">
                                     {
                                         playerInfo != null ?
                                             <BoxInfo
