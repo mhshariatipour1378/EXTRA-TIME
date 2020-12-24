@@ -1070,32 +1070,35 @@ class API
         }
 
 
-//        if (isset($_GET['Page']) and is_numeric($_GET['Page']))
-//        {
-//            $page = $_GET['Page'];
-//            $length = 10;
-//            $offset = $page-1;
-//            $data  = array_slice($data, $offset,$length);
-//
-//
-//        }else{
-//            $length = 10;
-//            $data  = array_slice($data, 0,$length);
-//
-//        }
-
-        $res = [];
-        $total = count($users);
-        $c = $total/10;
-//        var_dump($total);die();
-
-        for ($i=0;$i<$c;$i++)
+        if (isset($_GET['Page']) and is_numeric($_GET['Page']))
         {
-            $res[$i]  = array_slice($users,$i*10 ,10);
+            $page = $_GET['Page'];
+            $length = 12;
+            $offset = $page-1;
+            $data  = array_slice($data, $offset,$length);
+
+
+        }else{
+            $length = 12;
+            $data  = array_slice($data, 0,$length);
 
         }
 
 
+        $total = count($users);
+//        $c = $total/10;
+////        var_dump($total);die();
+//
+//        for ($i=0;$i<$c;$i++)
+//        {
+//            $res[$i]  = array_slice($users,$i*10 ,10);
+//
+//        }
+
+        $res = [
+            'count' => $total,
+            'data' => $data
+        ];
 
         return json_encode($res);
     }
