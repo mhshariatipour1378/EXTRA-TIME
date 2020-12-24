@@ -914,11 +914,214 @@ class API
         return json_encode($users);
     }
 
+    function searchPlayer()
+    {
+        $data = require_once "csv-to-array.php";
+
+        if (isset($_GET['Name']))
+        {
+            $data = searchByName($data,$_GET['Name']);
+        }
+
+        if (isset($_GET['Club']))
+        {
+            $data = searchByClub($data,$_GET['Club']);
+        }
+
+        if (isset($_GET['OVA']))
+        {
+            $arr = explode(",", $_GET['OVA']);
+            $data = searchByOVA($data,$arr);
+
+        }
+
+        if (isset($_GET['Position']))
+        {
+
+            $data = searchByBP($data,$_GET['Position']);
+
+        }
+
+        if (isset($_GET['Age']))
+        {
+            $arr = explode(",", $_GET['Age']);
+            $data = searchByAge($data, $arr);
+
+        }
+
+        if (isset($_GET['Sort']))
+        {
+            if ($_GET['Sort'] == 1){
+
+                $data = array_msort($data, array('OVA' => SORT_DESC));
+
+            }elseif ($_GET['Sort'] == 2){
+
+                $data = array_msort($data, array('OVA' => SORT_ASC));
+
+            }elseif ($_GET['Sort'] == 3){
+
+                $data = array_msort($data, array('Age' => SORT_DESC));
+
+            }elseif ($_GET['Sort'] == 4){
+
+                $data = array_msort($data, array('Age' => SORT_ASC));
+
+            }
+
+        }else{
+
+            $data = array_msort($data, array('OVA' => SORT_DESC));
+
+        }
+        $users = [];
+        $couter = 0;
+        foreach ($data as $player) {
+            if ($player['BP'] == 'GK') {
+                $users[$couter] = array(
+                    'ID' => $player['ID'],
+                    'Rank' => $couter + 1,
+                    'Name' => $player['Name'],
+                    'Age' => $player['Age'],
+                    'OVA' => $player['OVA'],
+                    'Nationality' => $player['Nationality'],
+                    'Club' => $player['Club'],
+                    'BP' => $player['BP'],
+                    'PlayerPhoto' => $player['Player Photo'],
+                    'FlagPhoto' => $player['Flag Photo'],
+                    'ClubLogo' => $player['Club Logo'],
+                    'card' => [
+                        [
+                            'name' => 'HAN',
+                            'val' => $player['GK Handling']
+                        ],
+                        [
+                            'name' => 'KIC',
+                            'val' => $player['GK Kicking']
+                        ],
+                        [
+                            'name' => 'POS',
+                            'val' => $player['GK Positioning']
+                        ],
+                        [
+                            'name' => 'REF',
+                            'val' => $player['GK Reflexes']
+                        ],
+                        [
+                            'name' => 'DIV',
+                            'val' => $player['GK Diving']
+                        ],
+                        [
+                            'name' => 'SPE',
+                            'val' => $player['Sprint Speed']
+                        ],
+                    ],
+
+                );
+            } else {
+                $users[$couter] = array(
+                    'ID' => $player['ID'],
+                    'Rank' => $couter + 1,
+                    'Name' => $player['Name'],
+                    'Age' => $player['Age'],
+                    'BP' => $player['BP'],
+                    'OVA' => $player['OVA'],
+                    'Nationality' => $player['Nationality'],
+                    'Club' => $player['Club'],
+                    'BP' => $player['BP'],
+                    'PlayerPhoto' => $player['Player Photo'],
+                    'FlagPhoto' => $player['Flag Photo'],
+                    'ClubLogo' => $player['Club Logo'],
+                    'card' => [
+                        [
+                            'name' => 'PAC',
+                            'val' => $player['PAC']
+                        ],
+                        [
+                            'name' => 'SHO',
+                            'val' => $player['SHO']
+                        ],
+                        [
+                            'name' => 'PAS',
+                            'val' => $player['PAS']
+                        ],
+                        [
+                            'name' => 'DRI',
+                            'val' => $player['DRI']
+                        ],
+                        [
+                            'name' => 'DEF',
+                            'val' => $player['DEF']
+                        ],
+                        [
+                            'name' => 'PHY',
+                            'val' => $player['PHY']
+                        ]
+                    ],
+
+                );
+
+            }
+            $couter++;
+//            var_dump($users);die();
+//            $final = array_push($users);
+
+
+        }
+
+
+//        if (isset($_GET['Page']) and is_numeric($_GET['Page']))
+//        {
+//            $page = $_GET['Page'];
+//            $length = 10;
+//            $offset = $page-1;
+//            $data  = array_slice($data, $offset,$length);
+//
+//
+//        }else{
+//            $length = 10;
+//            $data  = array_slice($data, 0,$length);
+//
+//        }
+
+        $res = [];
+        $total = count($users);
+        $c = $total/10;
+//        var_dump($total);die();
+
+        for ($i=0;$i<$c;$i++)
+        {
+            $res[$i]  = array_slice($users,$i*10 ,10);
+
+        }
+
+
+
+        return json_encode($res);
+    }
+
+    function getAllClub(){
+
+        $data = require_once "csv-to-array.php";
+        $res = array();
+
+        foreach ($data as $player){
+
+            array_push($res, $player['Club']);
+
+        }
+
+        array_unique($res);
+
+        return json_encode($res);
+    }
+
 
 }
 
 $test = new API();
 header("Content-Type: application/json");
+
 
 if (isset($_GET['Best'])) {
     if ($_GET['Best'] == 'Player') {
@@ -962,6 +1165,15 @@ if (isset($_GET['Best'])) {
     }
 } elseif (isset($_GET['playerId']) and !empty($_GET['playerId'])) {
     echo $test->getById($_GET['playerId']);
+
+}elseif (isset($_GET['Name']) or isset($_GET['Club']) or isset($_GET['OVA']) or isset($_GET['Position']) or isset($_GET['Age'])){
+
+    echo $test->searchPlayer();
+
+
+}elseif (isset($_GET['ClubName']) and $_GET['ClubName'] == "All"){
+
+    echo $test->getAllClub();
 
 } else {
     return 0;
