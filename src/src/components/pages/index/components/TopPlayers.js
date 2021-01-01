@@ -2,6 +2,7 @@ import React from 'react'
 import {faLongArrowAltRight} from '@fortawesome/free-solid-svg-icons'
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import {Link} from "react-router-dom";
+import Loader from "react-loader-spinner";
 
 const TopPlayers = (props)=>{
     return(
@@ -31,7 +32,16 @@ const TopPlayers = (props)=>{
                                 </Link>
                             )
                         )
-                        : <div>loadding</div>
+                        : (
+                            <div className="text-center">
+                                <Loader
+                                    type="ThreeDots"
+                                    color="#255965"
+                                    height={25}
+                                    width={25}
+                                />
+                            </div>
+                        )
                     }
 
 
@@ -44,10 +54,15 @@ const TopPlayers = (props)=>{
                 </div>
 
                 <div className="show-all">
-                    <a>
+                    <Link
+                        to={{
+                            pathname: "/search",
+                            search:`?position=${props.slug}`
+                        }}
+                    >
                         <span className="text">show all</span>
                         <FontAwesomeIcon  icon={faLongArrowAltRight} />
-                    </a>
+                    </Link>
                 </div>
             </div>
         </>

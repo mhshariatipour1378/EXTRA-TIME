@@ -181,19 +181,28 @@ header{
       min-width: 250px;
       max-width: 250px;
       z-index: 9999 !important;
-      transform: scale(0) !important;
-
     }
 
-    .holder-items.active{
-      transform: scale(1) !important;
-    }
+
 
     .b-player{
       display: flex;
       align-items: center;
       padding: 10px 0;
       border-bottom: 1px solid #D3D3D3;
+
+
+      .p-link{
+        display: flex;
+        align-items: center;
+        width: 85%;
+        .p-name{
+          overflow: hidden;
+          white-space: nowrap;
+          text-overflow: ellipsis;
+        }
+      }
+
       .p-img{
         height: 50px;
         width: 50px;

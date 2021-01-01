@@ -1,5 +1,6 @@
 import React from 'react'
 
+
 const BoxInfo = (props) =>{
 
     var theme = props.theme != null ? "brown" : "";

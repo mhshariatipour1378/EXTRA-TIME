@@ -8,14 +8,14 @@ import {
 } from "react-router-dom";
 import BookMarkProvider from "./components/contexts/BookMarkProvider"
 import CounterPlayersBookMark from "./components/contexts/CounterBookMarks"
-
+import LoaderProvider  from "./components/contexts/LoaderProvider"
 
 
 function App(){
 
 
   return (
-
+    <LoaderProvider>
       <BookMarkProvider>
           <CounterPlayersBookMark>
               <Router>
@@ -29,6 +29,7 @@ function App(){
               </Router>
           </CounterPlayersBookMark>
       </BookMarkProvider>
+    </LoaderProvider>
   );
 }
 

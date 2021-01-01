@@ -15,6 +15,7 @@ const Information = (props)=>{
     const {counterPlus, counterMines} = useSetCounterPlayersBookMark();
     const [bookMarkActive, setBookMarkActive] = useState(0);
 
+
     useEffect(()=>{
 
         for(var i = 0 ; i < playersBookMark.length ; i++){
@@ -23,7 +24,9 @@ const Information = (props)=>{
             }
         }
 
-    },[]);
+        console.log("use-Effect-information");
+
+    },[playersBookMark]);
 
     const togglePlayerBookMark = (id, name, src)=>{
         if(!bookMarkActive){

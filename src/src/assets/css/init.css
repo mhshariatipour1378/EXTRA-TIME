@@ -137,6 +137,24 @@ h6 {
   background-color: #707070;
 }
 
+/* Loader*/
+.loader-page {
+  background-color: rgba(0, 0, 0, 0.5);
+  align-items: center;
+  justify-content: center;
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  z-index: 99999;
+  display: none;
+}
+
+.loader-page.active {
+  display: flex;
+}
+
 @media only screen and (max-width: 768px) {
   body {
     font-size: 15px;

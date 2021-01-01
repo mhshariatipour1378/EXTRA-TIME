@@ -3,7 +3,7 @@ import "./style/header.css"
 import Logo from "./img/logo.png"
 import {faAngleDown, faBookmark, faTimes, faSearch, faList} from '@fortawesome/free-solid-svg-icons'
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
-import {Link} from "react-router-dom";
+import {Link, useRouteMatch, useHistory} from "react-router-dom";
 import usePlayersBookMark from "./../hooks/usePlayersBookMark"
 import useSetPlayersBookMark from "./../hooks/useSetPlayersBookMark"
 import useCounterPlayersBookMark from "./../hooks/useCounterPlayersBookMark"
@@ -11,22 +11,29 @@ import useSetCounterPlayersBookMark from "./../hooks/useSetCounterPlayersBookMar
 
 import Cookies from 'universal-cookie';
 
-const Header = ({txt, searchBox})=>{
+const Header = (props)=>{
 
-
-        const players = usePlayersBookMark();
-        const setPlayers = useSetPlayersBookMark();
+        const [playerName, setPlayerName] = useState('')
+        const playersBookMark = usePlayersBookMark();
+        const [players, setPlayers] = useState(playersBookMark);
+        const setPlayersBookMark = useSetPlayersBookMark();
         const [active, setActive] = useState(0);
         const countPlayers = useCounterPlayersBookMark();
         const {counterMines} = useSetCounterPlayersBookMark();
         const cookies = new Cookies();
 
 
+        useEffect(()=>{
 
-    /*        console.log("re-render");*/
+            setPlayers(playersBookMark);
+            console.log("re-render-Header-Use-Effect");
 
-        function toggleActive(){
-            setActive(!active);
+        },[countPlayers]);
+
+      console.log("re-render-Header");
+
+        function setPlayerForShow(){
+
         }
 
         function removerPlayerBookMark(id) {
@@ -36,14 +43,21 @@ const Header = ({txt, searchBox})=>{
                     temp.splice(i, 1);
                 }
             }
-            setPlayers(temp);
+            setPlayersBookMark(temp);
             console.log(players);
             counterMines();
             cookies.set('player', temp, { path: '/' });
         }
 
+        const history = useHistory();
+
+        const routeChange = () =>{
+            let path = `/search?name=${playerName}`;
+            history.push(path);
+        };
+
         return(
-            <header className={searchBox ? "active-search-box" : ""}>
+            <header className={props.searchBox ? "active-search-box" : ""}>
                 <div className="container">
                     <div className="row">
                         <div className="col-12">
@@ -70,29 +84,55 @@ const Header = ({txt, searchBox})=>{
                                                 <div className="holder-items">
                                                     <ul className="d-items color-brown">
                                                         <li className="d-item">
-                                                            <a className="d-link">
+                                                            <Link
+                                                                to={{
+                                                                    pathname: "/search",
+                                                                    search:`?position=GK`
+                                                                }}
+                                                                className="d-link"
+                                                            >
                                                                 Goalkeepers
-                                                            </a>
+                                                            </Link>
                                                         </li>
 
                                                         <li className="d-item">
-                                                            <a className="d-link">
+                                                            <Link
+                                                                to={{
+                                                                    pathname: "/search",
+                                                                    search:`?position=Defender`
+                                                                }}
+                                                                className="d-link"
+                                                            >
                                                                 Defenders
-                                                            </a>
+                                                            </Link>
                                                         </li>
 
+
                                                         <li className="d-item">
-                                                            <a className="d-link">
+                                                            <Link
+                                                                to={{
+                                                                    pathname: "/search",
+                                                                    search:`?position=Midfielder`
+                                                                }}
+                                                                className="d-link"
+                                                            >
                                                                 Midfielders
-                                                            </a>
+                                                            </Link>
                                                         </li>
 
 
                                                         <li className="d-item">
-                                                            <a className="d-link">
+                                                            <Link
+                                                                to={{
+                                                                    pathname: "/search",
+                                                                    search:`?position=Attacker`
+                                                                }}
+                                                                className="d-link"
+                                                            >
                                                                 Forwards
-                                                            </a>
+                                                            </Link>
                                                         </li>
+
                                                     </ul>
                                                 </div>
                                             </div>
@@ -146,7 +186,7 @@ const Header = ({txt, searchBox})=>{
                                     </div>
 
 
-                                    <div className="bookmark-players circle-menu" onMouseEnter={()=>toggleActive()} onMouseLeave={()=>toggleActive()}>
+                                    <div className="bookmark-players circle-menu" onMouseEnter={()=>setPlayerForShow()} >
                                     <span className="icon">
                                         <FontAwesomeIcon  icon={faBookmark} />
                                     </span>
@@ -159,17 +199,28 @@ const Header = ({txt, searchBox})=>{
                                                             {
                                                                 players.map(
                                                                     (player, index) => (
-                                                                        <Link to={`/player/${player.id}`} key={`player.id`+index} className="b-player">
-                                                                            <div className="p-img">
-                                                                                <img src="/p1.png" alt="player" />
-                                                                            </div>
-                                                                            <div className="p-name">
-                                                                                {player.name}
-                                                                            </div>
-                                                                            <button className="delete" onClick={()=>removerPlayerBookMark(player.id)}>
-                                                                                <FontAwesomeIcon   icon={faTimes} />
-                                                                            </button>
-                                                                        </Link>
+                                                                        <div className="b-player">
+                                                                            <Link
+
+                                                                                to={{
+                                                                                    pathname: `/player/${player.id}`,
+                                                                                    state: { fromDashboard: true }
+                                                                                }}
+                                                                                key={`player.id`+index}
+                                                                                className="p-link"
+                                                                            >
+                                                                                <div className="p-img">
+                                                                                    <img src="/p1.png" alt="player" />
+                                                                                </div>
+                                                                                <div className="p-name">
+                                                                                    {player.name}
+                                                                                </div>
+
+                                                                            </Link>
+                                                                                <button className="delete" onClick={()=>removerPlayerBookMark(player.id)}>
+                                                                                    <FontAwesomeIcon   icon={faTimes} />
+                                                                                </button>
+                                                                        </div>
                                                                     )
                                                                 )
                                                             }
@@ -190,7 +241,7 @@ const Header = ({txt, searchBox})=>{
                             </nav>
 
                             {
-                                searchBox ? (
+                                props.searchBox ? (
                                     <>
                                         <h1 className="font-title info-website">
                                             FIFA 2021 Player
@@ -199,8 +250,8 @@ const Header = ({txt, searchBox})=>{
                                         </h1>
                                         <form className="header-search">
                                             <div className="input-s-container">
-                                                <input className="input" placeholder="Enter the player name" />
-                                                <button>
+                                                <input className="input" value={playerName} onChange={(e)=>setPlayerName(e.target.value)} placeholder="Enter the player name" />
+                                                <button onClick={()=>routeChange()}>
                                                     <FontAwesomeIcon className="icon" icon={faSearch} />
                                                 </button>
                                             </div>
