@@ -5,7 +5,7 @@ $dark: #707070;
 $gold: #FADA5E;
 
 $boxShadowWhite : 5px 12px 20px rgba(36,37,38,.13);
-
+$boxShadowWhite2: 0 1px 5px rgba(0, 0, 0, 0.15);
 //mixin
 @mixin goldGradient($shadow ) {
   background: #FADA5E;

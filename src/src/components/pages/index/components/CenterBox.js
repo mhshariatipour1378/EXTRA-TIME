@@ -1,4 +1,6 @@
 import React, {useEffect, useState} from 'react'
+import {laLiga, serieA} from './../../../data/teams'
+import {Link} from "react-router-dom";
 
 const CenterBox = ()=>{
 
@@ -7,18 +9,21 @@ const CenterBox = ()=>{
         <div className="center-box">
 
             <div className="popular-teams">
-                <a href="" className="team">
-                    <img src="/assets/img/popular/Barcelona.png" alt="" />
-                </a>
-                <a href="" className="team">
-                    <img src="/assets/img/popular/RealMadrid.png" alt="" />
-                </a>
-                <a href="" className="team">
-                    <img src="/assets/img/popular/AtleticoMadrid.png" alt="" />
-                </a>
-                <a href="" className="team">
-                    <img src="/assets/img/popular/Valencia.png" alt="" />
-                </a>
+                {
+                    serieA.map((team)=>{
+                        return(
+                            <Link
+                                to={{
+                                    pathname: "/search",
+                                    search:`?team=${team.slug}`
+                                }}
+                                className="team"
+                            >
+                                <img src={"/assets/img/popular/"+team.img} />
+                            </Link>
+                        )
+                    })
+                }
             </div>
 
             <a className="comparison">
@@ -26,18 +31,21 @@ const CenterBox = ()=>{
             </a>
 
             <div className="popular-teams">
-                <a href="" className="team">
-                    <img src="/assets/img/popular/milan.png" alt="" />
-                </a>
-                <a href="" className="team">
-                    <img src="/assets/img/popular/juve.png" alt="" />
-                </a>
-                <a href="" className="team">
-                    <img src="/assets/img/popular/napoli.png" alt="" />
-                </a>
-                <a href="" className="team">
-                    <img src="/assets/img/popular/roma.png" alt="" />
-                </a>
+                {
+                    laLiga.map((team)=>{
+                        return(
+                            <Link
+                                to={{
+                                    pathname: "/search",
+                                    search:`?team=${team.slug}`
+                                }}
+                                className="team"
+                            >
+                                <img src={"/assets/img/popular/"+team.img} />
+                            </Link>
+                        )
+                    })
+                }
             </div>
 
 

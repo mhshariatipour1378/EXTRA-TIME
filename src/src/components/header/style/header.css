@@ -51,8 +51,8 @@ header {
   max-width: 150px;
   padding-top: 5px;
   transform: scale(0);
-  transition: 0.5s;
-  z-index: 99;
+  transition: z-index 0s, transform 0.5s;
+  z-index: 9999;
 }
 .navigation ul.menu-items .has-dropdown ul.d-items {
   padding: 10px;
@@ -143,13 +143,23 @@ header {
 .navigation .bookmark-players .holder-items {
   min-width: 250px;
   max-width: 250px;
-  z-index: 99;
+  z-index: 9999 !important;
 }
 .navigation .bookmark-players .b-player {
   display: flex;
   align-items: center;
   padding: 10px 0;
   border-bottom: 1px solid #D3D3D3;
+}
+.navigation .bookmark-players .b-player .p-link {
+  display: flex;
+  align-items: center;
+  width: 85%;
+}
+.navigation .bookmark-players .b-player .p-link .p-name {
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
 }
 .navigation .bookmark-players .b-player .p-img {
   height: 50px;
@@ -346,6 +356,12 @@ header.active-search-box {
 @media only screen and (max-width: 575px) {
   header.active-search-box {
     height: 320px;
+  }
+}
+
+@media only screen and (min-width: 1200px) {
+  .container {
+    max-width: 1350px !important;
   }
 }
 

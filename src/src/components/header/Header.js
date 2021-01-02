@@ -1,286 +1,272 @@
-import React from 'react';
+import React, {useEffect, useState} from 'react';
 import "./style/header.css"
 import Logo from "./img/logo.png"
 import {faAngleDown, faBookmark, faTimes, faSearch, faList} from '@fortawesome/free-solid-svg-icons'
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
-import {Link} from "react-router-dom";
+import {Link, useRouteMatch, useHistory} from "react-router-dom";
+import usePlayersBookMark from "./../hooks/usePlayersBookMark"
+import useSetPlayersBookMark from "./../hooks/useSetPlayersBookMark"
+import useCounterPlayersBookMark from "./../hooks/useCounterPlayersBookMark"
+import useSetCounterPlayersBookMark from "./../hooks/useSetCounterPlayersBookMark"
 
-const Header = ({txt, searchBox})=>{
+import Cookies from 'universal-cookie';
 
-    return(
-        <header className={searchBox ? "active-search-box" : ""}>
-            <div className="container">
-                <div className="row">
-                    <div className="col-12">
-                        <nav className="navigation">
+const Header = (props)=>{
 
-                            <div className="nav-box">
-                                <Link to="/" className="logo">
-                                    <img src={Logo} alt="LOGO"/>
-                                </Link>
-
-                                <ul className="menu-items d-md-block d-none">
-
-                                    <li className="m-item">
-                                        <Link to="/" className="m-link">
-                                            HOME
-                                        </Link>
-                                    </li>
+        const [playerName, setPlayerName] = useState('')
+        const playersBookMark = usePlayersBookMark();
+        const [players, setPlayers] = useState(playersBookMark);
+        const setPlayersBookMark = useSetPlayersBookMark();
+        const [active, setActive] = useState(0);
+        const countPlayers = useCounterPlayersBookMark();
+        const {counterMines} = useSetCounterPlayersBookMark();
+        const cookies = new Cookies();
 
 
-                                    <li className="m-item">
-                                        <div className="m-link has-dropdown">
-                                            PLAYERS
-                                            <FontAwesomeIcon className="icon" icon={faAngleDown} />
-                                            <div className="holder-items">
-                                                <ul className="d-items color-brown">
-                                                    <li className="d-item">
-                                                        <a className="d-link">
-                                                            Goalkeepers
-                                                        </a>
-                                                    </li>
+        useEffect(()=>{
 
-                                                    <li className="d-item">
-                                                        <a className="d-link">
-                                                            Defenders
-                                                        </a>
-                                                    </li>
+            setPlayers(playersBookMark);
+            console.log("re-render-Header-Use-Effect");
 
-                                                    <li className="d-item">
-                                                        <a className="d-link">
-                                                            Midfielders
-                                                        </a>
-                                                    </li>
+        },[countPlayers]);
+
+      console.log("re-render-Header");
+
+        function setPlayerForShow(){
+
+        }
+
+        function removerPlayerBookMark(id) {
+            var temp = players;
+            for(var i = 0 ; i < temp.length ; i++){
+                if (id === temp[i].id) {
+                    temp.splice(i, 1);
+                }
+            }
+            setPlayersBookMark(temp);
+            console.log(players);
+            counterMines();
+            cookies.set('player', temp, { path: '/' });
+        }
+
+        const history = useHistory();
+
+        const routeChange = () =>{
+            let path = `/search?name=${playerName}`;
+            history.push(path);
+        };
+
+        return(
+            <header className={props.searchBox ? "active-search-box" : ""}>
+                <div className="container">
+                    <div className="row">
+                        <div className="col-12">
+                            <nav className="navigation">
+
+                                <div className="nav-box">
+                                    <Link to="/" className="logo">
+                                        <img src={Logo} alt="LOGO"/>
+                                    </Link>
+
+                                    <ul className="menu-items d-md-block d-none">
+
+                                        <li className="m-item">
+                                            <Link to="/" className="m-link">
+                                                HOME
+                                            </Link>
+                                        </li>
 
 
-                                                    <li className="d-item">
-                                                        <a className="d-link">
-                                                            Forwards
-                                                        </a>
-                                                    </li>
-                                                </ul>
+                                        <li className="m-item">
+                                            <div className="m-link has-dropdown">
+                                                PLAYERS
+                                                <FontAwesomeIcon className="icon" icon={faAngleDown} />
+                                                <div className="holder-items">
+                                                    <ul className="d-items color-brown">
+                                                        <li className="d-item">
+                                                            <Link
+                                                                to={{
+                                                                    pathname: "/search",
+                                                                    search:`?position=GK`
+                                                                }}
+                                                                className="d-link"
+                                                            >
+                                                                Goalkeepers
+                                                            </Link>
+                                                        </li>
+
+                                                        <li className="d-item">
+                                                            <Link
+                                                                to={{
+                                                                    pathname: "/search",
+                                                                    search:`?position=Defender`
+                                                                }}
+                                                                className="d-link"
+                                                            >
+                                                                Defenders
+                                                            </Link>
+                                                        </li>
+
+
+                                                        <li className="d-item">
+                                                            <Link
+                                                                to={{
+                                                                    pathname: "/search",
+                                                                    search:`?position=Midfielder`
+                                                                }}
+                                                                className="d-link"
+                                                            >
+                                                                Midfielders
+                                                            </Link>
+                                                        </li>
+
+
+                                                        <li className="d-item">
+                                                            <Link
+                                                                to={{
+                                                                    pathname: "/search",
+                                                                    search:`?position=Attacker`
+                                                                }}
+                                                                className="d-link"
+                                                            >
+                                                                Forwards
+                                                            </Link>
+                                                        </li>
+
+                                                    </ul>
+                                                </div>
                                             </div>
-                                        </div>
-                                    </li>
+                                        </li>
 
 
-                                    <li className="m-item">
-                                        <a className="m-link">
-                                            COMPARISON
-                                        </a>
-                                    </li>
-                                </ul>
-                            </div>
+                                        <li className="m-item">
+                                            <a className="m-link">
+                                                COMPARISON
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </div>
 
-                            <div className="nav-box">
+                                <div className="nav-box">
 
-                                <div className="res-menu circle-menu d-md-none d-flex">
+                                    <div className="res-menu circle-menu d-md-none d-flex">
                                     <span className="icon">
                                         <FontAwesomeIcon  icon={faList} />
                                     </span>
 
-                                    <div className="holder-items color-brown">
-                                        <div className="h-items">
-                                            <div className="scroll-bar">
-                                                <ul className="r-menu-items">
-                                                    <li className="r-menu-item">
-                                                        <a className="r-menu-link">
-                                                            HOME
-                                                        </a>
-                                                    </li>
-                                                    <li className="r-menu-item">
-                                                        <div className="r-menu-link">
-                                                            PLAYERS
-                                                        </div>
-                                                        <div className="under-menu">
-                                                            <a className="u-link">Goalkeepers</a>
-                                                            <a className="u-link">Defenders</a>
-                                                            <a className="u-link">Midfielders</a>
-                                                            <a className="u-link">Forwards</a>
-                                                        </div>
-                                                    </li>
-                                                    <li className="r-menu-item">
-                                                        <a className="r-menu-link">
-                                                            COMPARISON
-                                                        </a>
-                                                    </li>
-                                                </ul>
+                                        <div className="holder-items color-brown">
+                                            <div className="h-items">
+                                                <div className="scroll-bar">
+                                                    <ul className="r-menu-items">
+                                                        <li className="r-menu-item">
+                                                            <a className="r-menu-link">
+                                                                HOME
+                                                            </a>
+                                                        </li>
+                                                        <li className="r-menu-item">
+                                                            <div className="r-menu-link">
+                                                                PLAYERS
+                                                            </div>
+                                                            <div className="under-menu">
+                                                                <a className="u-link">Goalkeepers</a>
+                                                                <a className="u-link">Defenders</a>
+                                                                <a className="u-link">Midfielders</a>
+                                                                <a className="u-link">Forwards</a>
+                                                            </div>
+                                                        </li>
+                                                        <li className="r-menu-item">
+                                                            <a className="r-menu-link">
+                                                                COMPARISON
+                                                            </a>
+                                                        </li>
+                                                    </ul>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
-                                </div>
 
 
-                                <div className="bookmark-players circle-menu">
+                                    <div className="bookmark-players circle-menu" onMouseEnter={()=>setPlayerForShow()} >
                                     <span className="icon">
                                         <FontAwesomeIcon  icon={faBookmark} />
                                     </span>
-                                    <div className="num-bookmark b-g-gold color-brown">99</div>
+                                        <div className="num-bookmark b-g-gold color-brown">{countPlayers}</div>
 
-                                    <div className="holder-items color-brown">
-                                        <div className="h-items">
-                                           <div className="scroll-bar">
-                                               <a href="#" className="b-player">
-                                                   <div className="p-img">
-                                                       <img src="/p1.png" alt="player" />
-                                                   </div>
-                                                   <div className="p-name">
-                                                       T. Werner
-                                                   </div>
-                                                   <button className="delete">
-                                                       <FontAwesomeIcon   icon={faTimes} />
-                                                   </button>
-                                               </a>
+                                                <div className={`holder-items color-brown ${active ? "active" : ""}`}>
+                                                    <div className="h-items">
+                                                        <div className="scroll-bar">
 
-                                               <a href="#" className="b-player">
-                                                   <div className="p-img">
-                                                       <img src="/p2.png" alt="player" />
-                                                   </div>
-                                                   <div className="p-name">
-                                                       Eden hazard
-                                                   </div>
+                                                            {
+                                                                players.map(
+                                                                    (player, index) => (
+                                                                        <div className="b-player">
+                                                                            <Link
 
-                                                   <button className="delete">
-                                                       <FontAwesomeIcon   icon={faTimes} />
-                                                   </button>
-                                               </a>
+                                                                                to={{
+                                                                                    pathname: `/player/${player.id}`,
+                                                                                    state: { fromDashboard: true }
+                                                                                }}
+                                                                                key={`player.id`+index}
+                                                                                className="p-link"
+                                                                            >
+                                                                                <div className="p-img">
+                                                                                    <img src="/p1.png" alt="player" />
+                                                                                </div>
+                                                                                <div className="p-name">
+                                                                                    {player.name}
+                                                                                </div>
 
-                                               <a href="#" className="b-player">
-                                                   <div className="p-img">
-                                                       <img src="/p1.png" alt="player" />
-                                                   </div>
-                                                   <div className="p-name">
-                                                       T. Werner
-                                                   </div>
-                                                   <button className="delete">
-                                                       <FontAwesomeIcon   icon={faTimes} />
-                                                   </button>
-                                               </a>
+                                                                            </Link>
+                                                                                <button className="delete" onClick={()=>removerPlayerBookMark(player.id)}>
+                                                                                    <FontAwesomeIcon   icon={faTimes} />
+                                                                                </button>
+                                                                        </div>
+                                                                    )
+                                                                )
+                                                            }
 
-                                               <a href="#" className="b-player">
-                                                   <div className="p-img">
-                                                       <img src="/p2.png" alt="player" />
-                                                   </div>
-                                                   <div className="p-name">
-                                                       Eden hazard
-                                                   </div>
 
-                                                   <button className="delete">
-                                                       <FontAwesomeIcon   icon={faTimes} />
-                                                   </button>
-                                               </a>
+                                                        </div>
+                                                    </div>
+                                                </div>
 
-                                               <a href="#" className="b-player">
-                                                   <div className="p-img">
-                                                       <img src="/p1.png" alt="player" />
-                                                   </div>
-                                                   <div className="p-name">
-                                                       T. Werner
-                                                   </div>
-                                                   <button className="delete">
-                                                       <FontAwesomeIcon   icon={faTimes} />
-                                                   </button>
-                                               </a>
 
-                                               <a href="#" className="b-player">
-                                                   <div className="p-img">
-                                                       <img src="/p2.png" alt="player" />
-                                                   </div>
-                                                   <div className="p-name">
-                                                       Eden hazard
-                                                   </div>
 
-                                                   <button className="delete">
-                                                       <FontAwesomeIcon   icon={faTimes} />
-                                                   </button>
-                                               </a>
 
-                                               <a href="#" className="b-player">
-                                                   <div className="p-img">
-                                                       <img src="/p1.png" alt="player" />
-                                                   </div>
-                                                   <div className="p-name">
-                                                       T. Werner
-                                                   </div>
-                                                   <button className="delete">
-                                                       <FontAwesomeIcon   icon={faTimes} />
-                                                   </button>
-                                               </a>
 
-                                               <a href="#" className="b-player">
-                                                   <div className="p-img">
-                                                       <img src="/p2.png" alt="player" />
-                                                   </div>
-                                                   <div className="p-name">
-                                                       Eden hazard
-                                                   </div>
-
-                                                   <button className="delete">
-                                                       <FontAwesomeIcon   icon={faTimes} />
-                                                   </button>
-                                               </a>
-
-                                               <a href="#" className="b-player">
-                                                   <div className="p-img">
-                                                       <img src="/p1.png" alt="player" />
-                                                   </div>
-                                                   <div className="p-name">
-                                                       T. Werner
-                                                   </div>
-                                                   <button className="delete">
-                                                       <FontAwesomeIcon   icon={faTimes} />
-                                                   </button>
-                                               </a>
-
-                                               <a href="#" className="b-player">
-                                                   <div className="p-img">
-                                                       <img src="/p2.png" alt="player" />
-                                                   </div>
-                                                   <div className="p-name">
-                                                       Eden hazard
-                                                   </div>
-
-                                                   <button className="delete">
-                                                       <FontAwesomeIcon   icon={faTimes} />
-                                                   </button>
-                                               </a>
-
-                                           </div>
-                                        </div>
                                     </div>
+
                                 </div>
 
+                            </nav>
 
-                            </div>
+                            {
+                                props.searchBox ? (
+                                    <>
+                                        <h1 className="font-title info-website">
+                                            FIFA 2021 Player
+                                            <br/>
+                                            Information
+                                        </h1>
+                                        <form className="header-search">
+                                            <div className="input-s-container">
+                                                <input className="input" value={playerName} onChange={(e)=>setPlayerName(e.target.value)} placeholder="Enter the player name" />
+                                                <button onClick={()=>routeChange()}>
+                                                    <FontAwesomeIcon className="icon" icon={faSearch} />
+                                                </button>
+                                            </div>
+                                        </form>
+                                    </>
+                                ) : ''
+                            }
 
-                        </nav>
-
-                        {
-                            searchBox ? (
-                               <>
-                                   <h1 className="font-title info-website">
-                                       FIFA 2021 Player
-                                       <br/>
-                                       Information
-                                   </h1>
-                                   <form className="header-search">
-                                       <div className="input-s-container">
-                                           <input className="input" placeholder="Enter the player name" />
-                                           <button>
-                                               <FontAwesomeIcon className="icon" icon={faSearch} />
-                                           </button>
-                                       </div>
-                                   </form>
-                               </>
-                            ) : ''
-                        }
-
+                        </div>
                     </div>
                 </div>
-            </div>
-        </header>
-    )
+            </header>
+        )
 };
+
 
 
 
