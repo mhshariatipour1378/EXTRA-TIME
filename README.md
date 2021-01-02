@@ -1,6 +1,15 @@
 # EXTRA-TIME
 
-<p>FIFA 2021 Player Information</p>
+<p align="center" font-size="50px">
+   <b>
+    FIFA 2021 Player Information
+   </b>
+</p>
+
+<p align="center">
+Search among 17,000+ authentic players and view their information
+</p>
+
 <p align="center">
   <img src="http://nabzsalamati.ir/FIFA/index.jpg" height="500" />
 </p>
