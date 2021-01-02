@@ -117,7 +117,7 @@ const Shows = (props)=>{
             {
                 players.length > 0 ? players.map((player)=>{
                     return(
-                        <div className="col-4">
+                        <div className="col-xl-4 col-sm-6 col-12 text-center">
                             <Link className="res-player" to={`/player/${player.ID}`} key={player.ID}>
                                 <div className="res-info">
                                     <div className="p-img"><img src="/football-player.png" alt="img"/></div>
