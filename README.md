@@ -4,7 +4,9 @@
 <p align="center">
   <img src="http://nabzsalamati.ir/FIFA/index.jpg" height="500" />
 </p>
+
 ## Installing
+
 The Project requires the following dependencies:
 
 - [Node.js](https://nodejs.org/)
@@ -21,9 +23,11 @@ Follow the steps below to run the project:
 1. Open http://localhost:3000/ in browser to see app
 
 ## Structure
+
 The project consists of two parts, Frontend and Backend:
 
-###Frontend
+### Frontend
+
 The project frontend is a React application compiled with Webpack.
 [React Bootstrap](https://react-bootstrap.github.io/) and [SASS](https://sass-lang.com/) have been used to style the components.
 
@@ -32,4 +36,4 @@ The project frontend is a React application compiled with Webpack.
 - `frontend/src/components` - React components
 
 
-###Backend
+### Backend
