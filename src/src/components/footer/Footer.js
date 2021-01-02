@@ -1,5 +1,6 @@
 import React from 'react'
 import "./style/footer.css"
+import {Link} from "react-router-dom";
 
 
 const Footer = ()=>{
@@ -21,35 +22,58 @@ const Footer = ()=>{
 
                     <h3 className="head-link">Top Players</h3>
                     <ul className="links">
-                        <li className="link">
-                            <a>
+
+                        <li>
+                            <Link
+                                to={{
+                                    pathname: "/search",
+                                    search:`?position=GK`
+                                }}
+                                className="link"
+                            >
                                 Goalkeepers
-                            </a>
+                            </Link>
                         </li>
 
-                        <li className="link">
-                            <a>
+                        <li>
+                            <Link
+                                to={{
+                                    pathname: "/search",
+                                    search:`?position=Defender`
+                                }}
+                                className="link"
+                            >
                                 Defenders
-                            </a>
+                            </Link>
                         </li>
 
-                        <li className="link">
-                            <a>
+
+                        <li>
+                            <Link
+                                to={{
+                                    pathname: "/search",
+                                    search:`?position=Midfielder`
+                                }}
+                                className="link"
+                            >
                                 Midfielders
-                            </a>
+                            </Link>
                         </li>
 
-                        <li className="link">
-                            <a>
-                                Forwards
-                            </a>
-                        </li>
 
-                        <li className="link">
-                            <a>
-                                Young
-                            </a>
-                        </li>
+                       <li>
+                           <Link
+                               to={{
+                                   pathname: "/search",
+                                   search:`?position=Attacker`
+                               }}
+                               className="link"
+                           >
+                               Forwards
+                           </Link>
+                       </li>
+
+
                     </ul>
                 </div>
 
@@ -57,35 +81,70 @@ const Footer = ()=>{
 
                         <h3 className="head-link">Team Players</h3>
                         <ul className="links">
-                            <li className="link">
-                                <a>
-                                    Gelsea
-                                </a>
+
+
+                            <li>
+                                <Link
+                                    to={{
+                                        pathname: "/search",
+                                        search:`?team=Chelsea`
+                                    }}
+                                    className="link"
+                                >
+                                    Chelsea
+                                </Link>
                             </li>
 
-                            <li className="link">
-                                <a>
-                                    Wolves
-                                </a>
-                            </li>
-
-                            <li className="link">
-                                <a>
+                            <li>
+                                <Link
+                                    to={{
+                                        pathname: "/search",
+                                        search:`?team=Liverpool`
+                                    }}
+                                    className="link"
+                                >
                                     Liverpool
-                                </a>
+                                </Link>
                             </li>
 
-                            <li className="link">
-                                <a>
-                                    Everton
-                                </a>
+                            <li>
+                                <Link
+                                    to={{
+                                        pathname: "/search",
+                                        search:`?team=Juventus`
+                                    }}
+                                    className="link"
+                                >
+                                    Juventus
+                                </Link>
                             </li>
 
-                            <li className="link">
-                                <a>
-                                    Leicester
-                                </a>
+                            <li>
+                                <Link
+                                    to={{
+                                        pathname: "/search",
+                                        search:`?team=Real Madrid`
+                                    }}
+                                    className="link"
+                                >
+                                    Real Madrid
+                                </Link>
                             </li>
+
+                            <li>
+                                <Link
+                                    to={{
+                                        pathname: "/search",
+                                        search:`?team=FC Barcelona`
+                                    }}
+                                    className="link"
+                                >
+                                    Barcelona
+                                </Link>
+                            </li>
+
+                          
+
                         </ul>
                     </div>
 

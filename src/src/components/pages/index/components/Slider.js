@@ -3,6 +3,7 @@ import ReactIdSwiperCustom from 'react-id-swiper/lib/ReactIdSwiper.custom';
 import { Swiper, Navigation, Pagination } from 'swiper/swiper.esm';
 import 'swiper/swiper-bundle.css'
 import {Link} from "react-router-dom";
+import Loader from "react-loader-spinner";
 
 
 const Slider = (props) => {
@@ -71,7 +72,12 @@ const Slider = (props) => {
                                 <ReactIdSwiperCustom {...params}>
                                     {
                                         props.players.map( (player, index) => (
-                                            <Link to={`/player/${player.ID}`} key={player.ID}>
+                                            <Link
+                                                to={{
+                                                    pathname: `/player/${player.ID}`,
+                                                }}
+                                                key={player.ID}
+                                            >
                                                 <div className="top-player">
                                                     <div className="top-info">
                                                         <div className="p-img">
@@ -113,7 +119,19 @@ const Slider = (props) => {
 
                                     }
                                 </ReactIdSwiperCustom>
-                                : <div>loadding</div>
+                                : (
+                                    <div className="text-center">
+                                        <Loader
+                                            type="ThreeDots"
+                                            color="#255965"
+                                            height={25}
+                                            width={25}
+
+                                        />
+                                    </div>
+                                )
+
+
                         }
                     </div>
 

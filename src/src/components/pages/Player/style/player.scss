@@ -31,6 +31,20 @@
       }
     }
 
+    .add-compare{
+      position: absolute;
+      top: 15px;
+      right: 15px;
+      font-size: 30px;
+      color: #adadad;
+      cursor: pointer;
+      transition: 0.3s;
+      &:hover{
+        color: $brown;
+        transform: scale(1.1);
+      }
+    }
+
     .bookmark.active{
       color: $brown;
     }
@@ -106,9 +120,13 @@
       margin-bottom: 15px;
       .b-item{
         width: 50%;
-        padding: 10px 15px;
+        padding: 10px;
         display: flex;
         align-items: center;
+
+        @include respond("xs") {
+          width: 100%;
+        }
 
         .value{
           background-color: $darkBlue;

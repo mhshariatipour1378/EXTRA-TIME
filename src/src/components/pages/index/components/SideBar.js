@@ -64,13 +64,13 @@ const SideBar = ()=>{
     return(
         <>
             <div className="side-bar">
-                <TopPlayers title="Goalkeepers" players={playerGK}/>
+                <TopPlayers title="Goalkeepers" players={playerGK} slug="GK"/>
 
-                <TopPlayers title="Defenders" players={playerDefender}/>
+                <TopPlayers title="Defenders" players={playerDefender} slug="Defender"/>
 
-                <TopPlayers title="Midfielders" players={playerMidfielder}/>
+                <TopPlayers title="Midfielders" players={playerMidfielder} slug="Midfielder"/>
 
-                <TopPlayers title="Forwards" players={playerAttacker}/>
+                <TopPlayers title="Forwards" players={playerAttacker} slug="Attacker"/>
             </div>
         </>
     );
