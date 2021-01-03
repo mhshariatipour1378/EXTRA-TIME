@@ -25,7 +25,7 @@ The Project requires the following dependencies:
 
 Follow the steps below to run the project:
 
-1. Clone this repo
+1. Clone this repo then go to frontend folder
 1. Install dependencies with `yarn install` or `npm install`
 1. Build the source code with `yarn build` or `npm build`
 1. Run app with `yarn start` or `npm start`
