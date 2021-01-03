@@ -5,7 +5,7 @@ import Shows from "./components/Shows"
 import Inputs from "./components/Inputs"
 import "./style/checkbox.css"
 import "./style/search.css"
-import FilterProvider from "./../../contexts/FilterProvider"
+import FilterProvider from "../../contexts/FilterProvider"
 
 
 

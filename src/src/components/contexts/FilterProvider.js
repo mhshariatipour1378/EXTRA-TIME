@@ -31,7 +31,7 @@ const defaultFilters = {
 const FilterProvider = (props) =>{
   const [filters, setFilters] = useState(defaultFilters);
 
-  console.log( "Filters.Provider");
+ // console.log( "Filters.Provider");
 
   return(
     <Filters.Provider value={filters}>

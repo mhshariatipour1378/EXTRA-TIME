@@ -26,11 +26,11 @@ const Header = (props)=>{
         useEffect(()=>{
 
             setPlayers(playersBookMark);
-            console.log("re-render-Header-Use-Effect");
+           // console.log("re-render-Header-Use-Effect");
 
         },[countPlayers]);
 
-      console.log("re-render-Header");
+      //console.log("re-render-Header");
 
         function setPlayerForShow(){
 
@@ -44,7 +44,7 @@ const Header = (props)=>{
                 }
             }
             setPlayersBookMark(temp);
-            console.log(players);
+            //console.log(players);
             counterMines();
             cookies.set('player', temp, { path: '/' });
         }
@@ -218,7 +218,7 @@ const Header = (props)=>{
                                     </div>
 
 
-                                    <div className="bookmark-players circle-menu" onMouseEnter={()=>setPlayerForShow()} >
+                                    <div className="bookmark-players circle-menu" >
                                     <span className="icon">
                                         <FontAwesomeIcon  icon={faBookmark} />
                                     </span>
@@ -242,7 +242,7 @@ const Header = (props)=>{
                                                                                 className="p-link"
                                                                             >
                                                                                 <div className="p-img">
-                                                                                    <img src="/p1.png" alt="player" />
+                                                                                    <img src="/football-player.png" alt="player" />
                                                                                 </div>
                                                                                 <div className="p-name">
                                                                                     {player.name}

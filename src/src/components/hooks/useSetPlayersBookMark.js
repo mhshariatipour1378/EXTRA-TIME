@@ -1,5 +1,5 @@
 import React from 'react'
-import {setBookMarkPlayers} from './../contexts/BookMarkProvider'
+import {setBookMarkPlayers} from '../contexts/BookMarkProvider'
 
 const useSetPlayersBookMark = ()=>{
     return(

@@ -5,7 +5,7 @@ import Cookies from 'universal-cookie';
 import useSetPlayersBookMark from "./../../../hooks/useSetPlayersBookMark"
 import usePlayersBookMark from "./../../../hooks/usePlayersBookMark"
 import useSetCounterPlayersBookMark from "./../../../hooks/useSetCounterPlayersBookMark"
-
+import useCounterPlayersBookMark from "./../../../hooks/useCounterPlayersBookMark"
 
 const Information = (props)=>{
 
@@ -14,6 +14,7 @@ const Information = (props)=>{
     const cookies = new Cookies();
     const {counterPlus, counterMines} = useSetCounterPlayersBookMark();
     const [bookMarkActive, setBookMarkActive] = useState(0);
+    const counterPlayer = useCounterPlayersBookMark();
 
 
     useEffect(()=>{
@@ -21,12 +22,19 @@ const Information = (props)=>{
         for(var i = 0 ; i < playersBookMark.length ; i++){
             if (props.id === playersBookMark[i].id) {
                 setBookMarkActive(1);
+                break;
+            }else if(i === playersBookMark.length-1){
+                setBookMarkActive(0);
             }
+        }
+
+        if(playersBookMark.length <= 0){
+            setBookMarkActive(0);
         }
 
         console.log("use-Effect-information");
 
-    },[playersBookMark]);
+    },[playersBookMark,counterPlayer]);
 
     const togglePlayerBookMark = (id, name, src)=>{
         if(!bookMarkActive){

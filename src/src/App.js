@@ -1,5 +1,4 @@
 import {routes} from "./Route"
-import {useEffect} from "react"
 import 'bootstrap/dist/css/bootstrap.min.css';
 import {
     BrowserRouter as Router,

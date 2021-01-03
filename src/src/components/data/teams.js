@@ -20,11 +20,6 @@ export const premierLeague = [
         img: "SheffieldUtd.png",
     },
     {
-        name: "Brighton",
-        slug: "Brighton & Hove Albion",
-        img: "Brighton.png",
-    },
-    {
         name: "Liverpool",
         slug: "Liverpool",
         img: "Liverpool.png",

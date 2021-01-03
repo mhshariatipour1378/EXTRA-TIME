@@ -169,6 +169,7 @@ header {
   margin-right: 8px;
   transition: 0.3s;
   border: 2px solid transparent;
+  background-color: #f0f0f0;
 }
 .navigation .bookmark-players .b-player .p-img img {
   height: 100%;
