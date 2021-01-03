@@ -197,7 +197,7 @@ const Header = (props)=>{
                                                         <div className="scroll-bar">
 
                                                             {
-                                                                players.map(
+                                                                players.length > 0 ? players.map(
                                                                     (player, index) => (
                                                                         <div className="b-player">
                                                                             <Link
@@ -217,12 +217,12 @@ const Header = (props)=>{
                                                                                 </div>
 
                                                                             </Link>
-                                                                                <button className="delete" onClick={()=>removerPlayerBookMark(player.id)}>
-                                                                                    <FontAwesomeIcon   icon={faTimes} />
-                                                                                </button>
+                                                                            <button className="delete" onClick={()=>removerPlayerBookMark(player.id)}>
+                                                                                <FontAwesomeIcon   icon={faTimes} />
+                                                                            </button>
                                                                         </div>
                                                                     )
-                                                                )
+                                                                ) : <div className="text-danger text-center">No players added</div>
                                                             }
 
 

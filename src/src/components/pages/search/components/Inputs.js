@@ -48,7 +48,13 @@ const Inputs = (props)=>{
             path+=`?team=${searchQuery.team}&`;
         }
 
-        history.push(window.location.pathname+path+`name=${valueName}`);
+        if (path.length > 0){
+            path+=`name=${valueName}`
+        }else{
+            path+=`?name=${valueName}`
+        }
+
+        history.push(window.location.pathname+path);
 
     };
 

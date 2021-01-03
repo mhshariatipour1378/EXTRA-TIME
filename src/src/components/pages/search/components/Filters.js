@@ -4,6 +4,9 @@ import "react-input-range/lib/css/index.css"
 import useFilters from "./../../../hooks/useFilters"
 import useSetFilters from "./../../../hooks/useSetFilters"
 import {premierLeague, laLiga, serieA} from './../../../data/teams'
+import {useHistory} from "react-router-dom";
+import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
+import {faTimes} from '@fortawesome/free-solid-svg-icons'
 
 function parseQuery(queryString) {
     var query = {};
@@ -25,7 +28,8 @@ const Filters = (props)=>{
     const [rangeInputAge,setRangeInputAge] = useState({ min: filtersActive.age.min, max: filtersActive.age.max });
     const [rangeInputOva,setRangeInputOva] = useState({ min: filtersActive.ova.min, max: filtersActive.ova.max });
     const {setRangeAge, setRangeOva, toggleTeam, togglePosition, setName, setNewTeam, resetFilter, setNewPosition} = useSetFilters();
-
+    const history = useHistory();
+    const [activeBoxFilter, setActiveBoxFilter] = useState(0);
 
     console.log("re-filter.js");
 
@@ -74,162 +78,178 @@ const Filters = (props)=>{
 
 
 
-    function call() {
-        console.log("slm0");
+    function  clearFilter() {
+        resetFilter();
+        history.push(window.location.pathname);
     }
 
     return(
         <div className="filters">
-            <div className="filter">
-                <div className="filter-title">
-                    <span className="f-text font-title">By Position</span>
-                </div>
-                <div className="types">
-                    <div className="types-holder">
+            <button className="show-filter" onClick={()=>  setActiveBoxFilter(!activeBoxFilter)}>
+                Search filters
+            </button>
+            <div className={`filters-holder ${activeBoxFilter ? "active" : ""} `}>
+
+                <button className="close-filters" onClick={()=>  setActiveBoxFilter(!activeBoxFilter)}>
+                    <FontAwesomeIcon className="icon" icon={faTimes} />
+                </button>
+
+                <div className="filter">
+
+                    <div className="filter-title">
+                        <span className="f-text font-title">By Position</span>
+                    </div>
+                    <div className="types">
+                        <div className="types-holder">
 
 
-                        <div className="type">
-                            <label className="checkbox bounce" >
-                                <input type="checkbox" onChange={()=>togglePosition("GK")}/>
-                                <svg viewBox="0 0 21 21">
-                                    <polyline points="5 10.75 8.5 14.25 16 6"></polyline>
-                                </svg>
-                                <span className="value">Goalkeepers</span>
-                            </label>
+                            <div className="type">
+                                <label className="checkbox bounce" >
+                                    <input type="checkbox" onChange={()=>togglePosition("GK")}/>
+                                    <svg viewBox="0 0 21 21">
+                                        <polyline points="5 10.75 8.5 14.25 16 6"></polyline>
+                                    </svg>
+                                    <span className="value">Goalkeepers</span>
+                                </label>
+                            </div>
+
+                            <div className="type">
+                                <label className="checkbox bounce">
+                                    <input type="checkbox" onChange={()=>togglePosition("Defender")}/>
+                                    <svg viewBox="0 0 21 21">
+                                        <polyline points="5 10.75 8.5 14.25 16 6"></polyline>
+                                    </svg>
+                                    <span className="value">Defenders</span>
+                                </label>
+                            </div>
+
+
+                            <div className="type">
+                                <label className="checkbox bounce">
+                                    <input type="checkbox"  onChange={()=>togglePosition("Midfielder")}/>
+                                    <svg viewBox="0 0 21 21">
+                                        <polyline points="5 10.75 8.5 14.25 16 6"></polyline>
+                                    </svg>
+                                    <span className="value">Midfielders</span>
+                                </label>
+                            </div>
+
+                            <div className="type">
+                                <label className="checkbox bounce">
+                                    <input type="checkbox" onChange={()=>togglePosition("Attacker")}/>
+                                    <svg viewBox="0 0 21 21">
+                                        <polyline points="5 10.75 8.5 14.25 16 6"></polyline>
+                                    </svg>
+                                    <span className="value">Forwards</span>
+                                </label>
+                            </div>
+
+                            <div className="type">
+                                <label className="checkbox bounce">
+                                    <input type="checkbox" onChange={()=>togglePosition("All")}/>
+                                    <svg viewBox="0 0 21 21">
+                                        <polyline points="5 10.75 8.5 14.25 16 6"></polyline>
+                                    </svg>
+                                    <span className="value">All</span>
+                                </label>
+                            </div>
+
                         </div>
-
-                        <div className="type">
-                            <label className="checkbox bounce">
-                                <input type="checkbox" onChange={()=>togglePosition("Defender")}/>
-                                <svg viewBox="0 0 21 21">
-                                    <polyline points="5 10.75 8.5 14.25 16 6"></polyline>
-                                </svg>
-                                <span className="value">Defenders</span>
-                            </label>
-                        </div>
-
-
-                        <div className="type">
-                            <label className="checkbox bounce">
-                                <input type="checkbox" onChange={()=>togglePosition("Midfielder")}/>
-                                <svg viewBox="0 0 21 21">
-                                    <polyline points="5 10.75 8.5 14.25 16 6"></polyline>
-                                </svg>
-                                <span className="value">Midfielders</span>
-                            </label>
-                        </div>
-
-                        <div className="type">
-                            <label className="checkbox bounce">
-                                <input type="checkbox" onChange={()=>togglePosition("Attacker")}/>
-                                <svg viewBox="0 0 21 21">
-                                    <polyline points="5 10.75 8.5 14.25 16 6"></polyline>
-                                </svg>
-                                <span className="value">Forwards</span>
-                            </label>
-                        </div>
-
-                        <div className="type">
-                            <label className="checkbox bounce">
-                                <input type="checkbox" onChange={()=>togglePosition("All")}/>
-                                <svg viewBox="0 0 21 21">
-                                    <polyline points="5 10.75 8.5 14.25 16 6"></polyline>
-                                </svg>
-                                <span className="value">All</span>
-                            </label>
-                        </div>
-
                     </div>
                 </div>
-            </div>
 
-            <div className="filter">
-                <div className="filter-title">
-                    <span className="f-text font-title">By Team</span>
-                </div>
-                <div className="types">
-                    <div className="types-holder">
+                <div className="filter">
+                    <div className="filter-title">
+                        <span className="f-text font-title">By Team</span>
+                    </div>
+                    <div className="types">
+                        <div className="types-holder">
 
-                        {
-                            premierLeague.map((team)=>{
-                              return(
-                                  <div className="type">
-                                      <label className="checkbox bounce">
-                                          <input type="checkbox" onChange={(e)=>toggleTeam(team.slug)}/>
-                                          <svg viewBox="0 0 21 21">
-                                              <polyline points="5 10.75 8.5 14.25 16 6"></polyline>
-                                          </svg>
-                                          <span className="value">{team.name}</span>
-                                      </label>
-                                  </div>
-                              )
-                            })
-                        }
+                            {
+                                premierLeague.map((team)=>{
+                                    return(
+                                        <div className="type">
+                                            <label className="checkbox bounce">
+                                                <input type="checkbox" onChange={(e)=>toggleTeam(team.slug)}/>
+                                                <svg viewBox="0 0 21 21">
+                                                    <polyline points="5 10.75 8.5 14.25 16 6"></polyline>
+                                                </svg>
+                                                <span className="value">{team.name}</span>
+                                            </label>
+                                        </div>
+                                    )
+                                })
+                            }
 
-                        {
-                            laLiga.map((team)=>{
-                                return(
-                                    <div className="type">
-                                        <label className="checkbox bounce">
-                                            <input type="checkbox" onChange={(e)=>toggleTeam(team.slug)}/>
-                                            <svg viewBox="0 0 21 21">
-                                                <polyline points="5 10.75 8.5 14.25 16 6"></polyline>
-                                            </svg>
-                                            <span className="value">{team.name}</span>
-                                        </label>
-                                    </div>
-                                )
-                            })
-                        }
+                            {
+                                laLiga.map((team)=>{
+                                    return(
+                                        <div className="type">
+                                            <label className="checkbox bounce">
+                                                <input type="checkbox" onChange={(e)=>toggleTeam(team.slug)}/>
+                                                <svg viewBox="0 0 21 21">
+                                                    <polyline points="5 10.75 8.5 14.25 16 6"></polyline>
+                                                </svg>
+                                                <span className="value">{team.name}</span>
+                                            </label>
+                                        </div>
+                                    )
+                                })
+                            }
 
-                        {
-                            serieA.map((team)=>{
-                                return(
-                                    <div className="type">
-                                        <label className="checkbox bounce">
-                                            <input type="checkbox" onChange={(e)=>toggleTeam(team.slug)}/>
-                                            <svg viewBox="0 0 21 21">
-                                                <polyline points="5 10.75 8.5 14.25 16 6"></polyline>
-                                            </svg>
-                                            <span className="value">{team.name}</span>
-                                        </label>
-                                    </div>
-                                )
-                            })
-                        }
-
+                            {
+                                serieA.map((team)=>{
+                                    return(
+                                        <div className="type">
+                                            <label className="checkbox bounce">
+                                                <input type="checkbox" onChange={(e)=>toggleTeam(team.slug)}/>
+                                                <svg viewBox="0 0 21 21">
+                                                    <polyline points="5 10.75 8.5 14.25 16 6"></polyline>
+                                                </svg>
+                                                <span className="value">{team.name}</span>
+                                            </label>
+                                        </div>
+                                    )
+                                })
+                            }
 
 
+
+                        </div>
                     </div>
                 </div>
-            </div>
 
-            <div className="filter">
-                <div className="filter-title">
-                    <span className="f-text font-title">By Age</span>
+                <div className="filter">
+                    <div className="filter-title">
+                        <span className="f-text font-title">By Age</span>
+                    </div>
+                    <div className="range">
+                        <InputRange
+                            minValue={16}
+                            maxValue={53}
+                            value={rangeInputAge}
+                            onChange={val=>setRangeAge(val)}
+                        />
+                    </div>
                 </div>
-                <div className="range">
-                    <InputRange
-                        minValue={16}
-                        maxValue={53}
-                        value={rangeInputAge}
-                        onChange={val=>setRangeAge(val)}
-                    />
-                </div>
-            </div>
 
-            <div className="filter">
-                <div className="filter-title">
-                    <span className="f-text font-title">By Ova</span>
+                <div className="filter">
+                    <div className="filter-title">
+                        <span className="f-text font-title">By Ova</span>
+                    </div>
+                    <div className="range">
+                        <InputRange
+                            minValue={38}
+                            maxValue={93}
+                            value={rangeInputOva}
+                            onChange={val=>setRangeOva(val)}
+                        />
+                    </div>
                 </div>
-                <div className="range">
-                    <InputRange
-                        minValue={38}
-                        maxValue={93}
-                        value={rangeInputOva}
-                        onChange={val=>setRangeOva(val)}
-                    />
-                </div>
+
+                <button className="clear-filter" onClick={()=> clearFilter()}>
+                    Clear Filters
+                </button>
             </div>
         </div>
     )
