@@ -235,6 +235,7 @@
   background-image: url("./../img/bg-palyer.png");
   margin: auto;
   background-size: 100% 100%;
+  transition: 0.3s;
   border-radius: 5px 5px 15% 15%;
   padding: 20px 25px 55px 25px;
 }
@@ -303,6 +304,10 @@
 }
 #index .top-player-slider .top-player .bottom-info .card-items .item div:last-child {
   text-align: right;
+}
+#index .top-player-slider .top-player:hover {
+  opacity: 0.9;
+  transform: translateY(-5px);
 }
 #index .top-player-slider .swiper-container {
   padding-bottom: 65px;

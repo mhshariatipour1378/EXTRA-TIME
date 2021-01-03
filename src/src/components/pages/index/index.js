@@ -10,8 +10,7 @@ const Index = ()=>{
 
     const [playerYoung, setPlayerYoung] = useState([]);
     const [topPlayer, setTopPlayer] = useState([]);
-    const [playerMidfielder, setPlayerMidfielder] = useState([]);
-    const [playerAttacker, setPlayerAttacker] = useState([]);
+
 
     useEffect(() => {
         fetch("http://nabzsalamati.ir/FIFA/?Best=Young")

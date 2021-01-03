@@ -159,19 +159,51 @@ const Header = (props)=>{
                                                 <div className="scroll-bar">
                                                     <ul className="r-menu-items">
                                                         <li className="r-menu-item">
-                                                            <a className="r-menu-link">
+                                                            <line to="/" className="r-menu-link">
                                                                 HOME
-                                                            </a>
+                                                            </line>
                                                         </li>
                                                         <li className="r-menu-item">
                                                             <div className="r-menu-link">
                                                                 PLAYERS
                                                             </div>
                                                             <div className="under-menu">
-                                                                <a className="u-link">Goalkeepers</a>
-                                                                <a className="u-link">Defenders</a>
-                                                                <a className="u-link">Midfielders</a>
-                                                                <a className="u-link">Forwards</a>
+                                                                <Link
+                                                                    to={{
+                                                                        pathname: "/search",
+                                                                        search:`?position=GK`
+                                                                    }}
+                                                                    className="u-link"
+                                                                >
+                                                                    Goalkeepers
+                                                                </Link>
+                                                                <Link
+                                                                    to={{
+                                                                        pathname: "/search",
+                                                                        search:`?position=Defender`
+                                                                    }}
+                                                                    className="u-link"
+                                                                >
+                                                                    Defenders
+                                                                </Link>
+                                                                <Link
+                                                                    to={{
+                                                                        pathname: "/search",
+                                                                        search:`?position=Midfielder`
+                                                                    }}
+                                                                    className="u-link"
+                                                                >
+                                                                    Midfielders
+                                                                </Link>
+                                                                <Link
+                                                                    to={{
+                                                                        pathname: "/search",
+                                                                        search:`?position=Attacker`
+                                                                    }}
+                                                                    className="u-link"
+                                                                >
+                                                                    Forwards
+                                                                </Link>
                                                             </div>
                                                         </li>
                                                         <li className="r-menu-item">

@@ -81,7 +81,7 @@ const Slider = (props) => {
                                                 <div className="top-player">
                                                     <div className="top-info">
                                                         <div className="p-img">
-                                                            <img src="/football-player.png" alt="img"/>
+                                                            <img src={`http://nabzsalamati.ir/FIFA/img/${player.ID}.webp`} alt="img"/>
                                                         </div>
                                                         <div className="t-i-text color-brown">
                                                             <div className="ova font-title">{player.OVA}</div>
