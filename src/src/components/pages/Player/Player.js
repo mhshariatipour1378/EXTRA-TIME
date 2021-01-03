@@ -4,12 +4,14 @@ import BoxInfo from './components/BoxInfo'
 import Information from './components/Information'
 import ContainerPage from "./../ContainerPage"
 import useSetActiveLoader from "./../../hooks/useSetActiveLoader"
+import {useHistory} from "react-router-dom";
 
 
 const Player = (props) => {
 
     const [playerInfo, setPlayerInfo] = useState(null);
     const setActiveLoader = useSetActiveLoader();
+    const history = useHistory();
 
 
     console.log("RE-render-Player");
@@ -21,10 +23,14 @@ const Player = (props) => {
             .then(res => res.json())
             .then(
                 (result) => {
-                    setPlayerInfo(result[0].data);
-                    console.log(result[0].data);
-                    document.title = result[0].data.INFO.Name;
-                    setActiveLoader(0);
+                    if(result[0].data){
+                        setPlayerInfo(result[0].data);
+                        console.log(result);
+                        document.title = result[0].data.INFO.Name;
+                        setActiveLoader(0);
+                    }else{
+                        history.push(`/404`);
+                    }
                 },
 
                 (error) => {

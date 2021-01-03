@@ -21,7 +21,7 @@ const TopPlayers = (props)=>{
                                         {index + 1}
                                     </div>
                                     <div className="p-img">
-                                        <img src="/football-player.png" alt="player" />
+                                        <img src={`http://nabzsalamati.ir/FIFA/img/${player.ID}.webp`} alt="player" />
                                     </div>
                                     <div className="p-name">
                                         {player['Name']}

@@ -22,6 +22,14 @@
       padding: 5px 15px;
       box-shadow: 0 2px 5px rgba(37,89,101,.5);
       margin: 10px 0;
+      border: 1px solid transparent;
+
+      &:hover{
+        background-color: $white;
+        border: 1px solid $darkBlue;
+        color: $darkBlue;
+      }
+
     }
 
 
@@ -311,6 +319,11 @@
 
 
         }
+      }
+
+      &:hover{
+        opacity: 0.9;
+        transform: translateY(-5px);
       }
 
     }

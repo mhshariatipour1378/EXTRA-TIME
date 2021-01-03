@@ -163,6 +163,37 @@ h6 {
 }
 
 
+.not-found-player{
+  margin: 25px 0;
+  text-align: center;
+  .img{
+    width: 50%;
+    margin:0 auto 15px auto;
+
+    img{
+      max-width: 100%;
+    }
+  }
+
+  .btn-home{
+    background-color: $darkBlue;
+    color: $white;
+    border-radius: 50px;
+    padding: 5px 15px;
+    box-shadow: 0 2px 5px rgba(37,89,101,.5);
+    margin: 10px 0;
+    border: 1px solid transparent;
+
+    &:hover{
+      background-color: $white;
+      border: 1px solid $darkBlue;
+      color: $darkBlue;
+    }
+
+  }
+
+}
+
 
 @include respond("mobiles") {
 

@@ -155,6 +155,32 @@ h6 {
   display: flex;
 }
 
+.not-found-player {
+  margin: 25px 0;
+  text-align: center;
+}
+.not-found-player .img {
+  width: 50%;
+  margin: 0 auto 15px auto;
+}
+.not-found-player .img img {
+  max-width: 100%;
+}
+.not-found-player .btn-home {
+  background-color: #255965;
+  color: #FFFFFF;
+  border-radius: 50px;
+  padding: 5px 15px;
+  box-shadow: 0 2px 5px rgba(37, 89, 101, 0.5);
+  margin: 10px 0;
+  border: 1px solid transparent;
+}
+.not-found-player .btn-home:hover {
+  background-color: #FFFFFF;
+  border: 1px solid #255965;
+  color: #255965;
+}
+
 @media only screen and (max-width: 768px) {
   body {
     font-size: 15px;

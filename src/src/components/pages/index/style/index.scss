@@ -284,7 +284,7 @@
       background-image: url("./../img/bg-palyer.png");
       margin: auto;
       background-size: 100% 100%;
-
+      transition: 0.3s;
       border-radius: 5px 5px 15% 15%;
       padding: 20px 25px 55px 25px;
 
@@ -372,6 +372,11 @@
 
 
         }
+      }
+
+      &:hover{
+        opacity: 0.9;
+        transform: translateY(-5px);
       }
 
     }
