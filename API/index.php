@@ -905,7 +905,7 @@ class API
         }
 
         if ($couter == 0) {
-            $users = [
+            $users[$couter] = [
                 'status' => 'notFound',
                 'data' => null
             ];
@@ -925,8 +925,25 @@ class API
 
         if (isset($_GET['Club']))
         {
-            $data = searchByClub($data,$_GET['Club']);
+            $temp = [];
+            $arr = explode(",", $_GET['Club']);
+            foreach ($arr as $p)
+            {
+
+                array_push($temp,searchByClub($data,$p));
+
+            }
+            $temp2 = [];
+            foreach ($temp as $t)
+            {
+                $temp2 = array_merge($temp2,$t);
+            }
+
+            $data = $temp2;
+
+
         }
+
 
         if (isset($_GET['OVA']))
         {
@@ -937,8 +954,22 @@ class API
 
         if (isset($_GET['Position']))
         {
+            $temp = [];
+            $arr = explode(",", $_GET['Position']);
+            foreach ($arr as $p)
+            {
 
-            $data = searchByBP($data,$_GET['Position']);
+                array_push($temp,searchByBP($data,$p));
+
+            }
+            $temp2 = [];
+            foreach ($temp as $t)
+            {
+                $temp2 = array_merge($temp2,$t);
+            }
+
+            $data = $temp2;
+
 
         }
 
@@ -1074,13 +1105,13 @@ class API
         {
             $page = $_GET['Page'];
             $length = 12;
-            $offset = $page-1;
-            $data  = array_slice($data, $offset,$length);
+            $offset = ($page-1) * $length;
+            $data  = array_slice($users, $offset,$length);
 
 
         }else{
             $length = 12;
-            $data  = array_slice($data, 0,$length);
+            $data  = array_slice($users, 0,$length);
 
         }
 
