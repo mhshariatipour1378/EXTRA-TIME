@@ -31,7 +31,7 @@ const Filters = (props)=>{
     const history = useHistory();
     const [activeBoxFilter, setActiveBoxFilter] = useState(0);
 
-    console.log("re-filter.js");
+   // console.log("re-filter.js");
 
 
     useEffect(()=>{
@@ -53,7 +53,7 @@ const Filters = (props)=>{
     },[]);
 
     useEffect(()=>{
-        console.log("re-setName");
+       // console.log("re-setName");
         const querySearch = parseQuery(window.location.search);
         if(querySearch.name){
             setName(querySearch.name);
@@ -144,15 +144,7 @@ const Filters = (props)=>{
                                 </label>
                             </div>
 
-                            <div className="type">
-                                <label className="checkbox bounce">
-                                    <input type="checkbox" onChange={()=>togglePosition("All")}/>
-                                    <svg viewBox="0 0 21 21">
-                                        <polyline points="5 10.75 8.5 14.25 16 6"></polyline>
-                                    </svg>
-                                    <span className="value">All</span>
-                                </label>
-                            </div>
+
 
                         </div>
                     </div>

@@ -1,5 +1,5 @@
 import React, {useContext} from 'react'
-import {SetFilters} from './../contexts/FilterProvider'
+import {SetFilters} from '../contexts/FilterProvider'
 
 
 
@@ -65,7 +65,7 @@ const useFilters = ()=>{
     }
 
     function toggleTeam(value) {
-        console.log("call-add-team");
+        //console.log("call-add-team");
         set(pre=>{
 
             var add = true;
@@ -73,7 +73,7 @@ const useFilters = ()=>{
 
             for(var i = 0 ; i < teams.length ; i++){
                 if(teams[i] === value){
-                    console.log("تکراری");
+                   // console.log("تکراری");
                     teams.splice(i, 1);
                     add = false;
                     break;
@@ -198,7 +198,7 @@ const useFilters = ()=>{
     }
 
     function togglePosition(value) {
-        console.log("call-add-position");
+       // console.log("call-add-position");
         set(pre=>{
 
             var add = true;
@@ -206,7 +206,7 @@ const useFilters = ()=>{
 
             for(var i = 0 ; i < positions.length ; i++){
                 if(positions[i] === value){
-                    console.log("تکراری");
+                 //   console.log("تکراری");
                     positions.splice(i, 1);
                     add = false;
                     break;

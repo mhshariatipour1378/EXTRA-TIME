@@ -56,7 +56,7 @@ const Shows = (props)=>{
                     (result) => {
                         setPlayers(result.data);
                         setTotalPlayer(result.count);
-                        console.log(result.data);
+                       // console.log(result.data);
                         setActiveLoader(0);
                         if(result.data.length >0){
                             setNotFound(0);
@@ -71,7 +71,7 @@ const Shows = (props)=>{
                 );
         },2000 );
 
-        console.log("CALL FETCH");
+       // console.log("CALL FETCH");
 
     },[showFilter]);
 
@@ -117,8 +117,8 @@ const Shows = (props)=>{
             {
                 players.length > 0 ? players.map((player)=>{
                     return(
-                        <div className="col-xl-4 col-sm-6 col-12 text-center">
-                            <Link className="res-player" to={`/player/${player.ID}`} key={player.ID}>
+                        <div className="col-xl-4 col-sm-6 col-12 text-center"  key={player.ID}>
+                            <Link className="res-player" to={`/player/${player.ID}`}>
                                 <div className="res-info">
                                     <div className="p-img"><img src="/football-player.png" alt="img"/></div>
                                     <div className="t-i-text color-brown">

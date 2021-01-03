@@ -1,5 +1,5 @@
 import React, {useContext} from 'react'
-import {SetCounter} from './../contexts/CounterBookMarks'
+import {SetCounter} from '../contexts/CounterBookMarks'
 
 const useSetCounterPlayersBookMark = ()=>{
     const setCounterPlayers = useContext(SetCounter);
