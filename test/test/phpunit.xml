@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<phpunit
+        bootstrap="./api/index.php"
+        colors="true"
+        verbose="true"
+        stopOnFailure="true"
+>
+
+    <testsuites>
+        <testsuite name="unit">
+            <directory>./tests/unit</directory>
+            <file>./tests/unit/oneTest.php</file>
+        </testsuite>
+
+    </testsuites>
+</phpunit>
