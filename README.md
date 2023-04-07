@@ -10,7 +10,7 @@
 Search among 17,000+ authentic players and view their information
 </p>
 <p align="center">
-   Click [Node.js](http://fifa21players.ir/) to view the website online 
+   Online version: <a href="http://fifa21players.ir/">fifa21players</a>
 </p>
 
 <p align="center">
