@@ -1,8 +1,8 @@
 # EXTRA-TIME
 
-<p align="center" font-size="50px">
+<p align="center" font-size="100px">
    <b>
-    ##FIFA 2021 Player Information
+    FIFA 2021 Player Information
    </b>
 </p>
 
